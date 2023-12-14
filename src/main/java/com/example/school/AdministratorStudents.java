@@ -1,5 +1,6 @@
 package com.example.school;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -8,7 +9,11 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+
+import javafx.application.Application;
+import java.util.Random;
 
 public class AdministratorStudents {
 
@@ -107,10 +112,28 @@ public class AdministratorStudents {
 
     @FXML
     private Button editStudent;
+    @FXML
+    protected void Random(MouseEvent event){}
 
     @FXML
     void initialize() {
+        createLogin.setOnAction(event -> {
+            String randomCombination = generateRandomCombination(10);
+            UserLogin.setText(randomCombination);
+        });
+
 
     }
+
+    private String generateRandomCombination(int length) {
+        String characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            sb.append(characters.charAt(random.nextInt(characters.length())));
+        }
+        return sb.toString();
+    }
+
 
 }
