@@ -43,7 +43,7 @@ public class Registration {
         int StudentsYear = Integer.parseInt(year.getText());
         String StudentsTelephone = telephone.getText();
         String StudentsGroupNumber = "";
-        String StudentsLogin = "";
+        String StudentsLogin = "null";
 
         if (!FIO.equals("")&&!date.equals("")&&!year.equals("")&&!telephone.equals("")){
             Student student = new Student(StudentsFIO,StudentsDate,StudentsYear,StudentsTelephone,StudentsGroupNumber,StudentsLogin);

@@ -61,7 +61,7 @@ public class Authorization {
             counter++;
         }
         if (counter>=1){
-            if (logenText.equals("administrator")) {SceneLoader.loadNewScene("AdministratorStudents.fxml",entrance);}
+            if (logenText.equals("admin")) {SceneLoader.loadNewScene("AdministratorStudents.fxml",entrance);}
             else {
                 //тут другие виды
             }

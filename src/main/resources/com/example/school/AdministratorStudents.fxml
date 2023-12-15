@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -18,19 +19,24 @@
                   <TextField fx:id="StudentDate" layoutX="30.0" layoutY="201.0" prefHeight="25.0" prefWidth="123.0" promptText="дд.мм" />
                   <TextField fx:id="StudentYear" layoutX="165.0" layoutY="201.0" prefHeight="25.0" prefWidth="121.0" promptText="гг" />
                   <TextField fx:id="StudentTelephone" layoutX="84.0" layoutY="265.0" promptText="Номер телевона(родителя)" />
-                  <Button fx:id="editStudent" layoutX="114.0" layoutY="323.0" mnemonicParsing="false" text="Редактировать " />
-                  <Button fx:id="deleteStudent" layoutX="133.0" layoutY="375.0" mnemonicParsing="false" text="Удалить " />
+                  <Button fx:id="editStudent" layoutX="115.0" layoutY="368.0" mnemonicParsing="false" onMouseClicked="#UpdateServiceStudent" text="Редактировать " />
+                  <Button fx:id="deleteStudent" layoutX="133.0" layoutY="417.0" mnemonicParsing="false" onMouseClicked="#UpdateServiceStudent" text="Удалить " />
                   <TableView fx:id="StudentTable" layoutX="297.0" layoutY="68.0" prefHeight="374.0" prefWidth="596.0">
                     <columns>
-                      <TableColumn fx:id="StudentTableId" prefWidth="41.0" text="ID" />
                       <TableColumn fx:id="StudentTableFIO" prefWidth="145.0" text="ФИО" />
                         <TableColumn fx:id="StudentTableDate" prefWidth="65.0" text="дд.мм" />
                         <TableColumn fx:id="StudentTableYear" prefWidth="49.0" text="гг" />
-                        <TableColumn fx:id="StudentTableTelephone" prefWidth="90.0" text="Номер телефона" />
-                        <TableColumn fx:id="StudentTableGroup" prefWidth="103.0" text="Номер группы" />
-                        <TableColumn fx:id="StudentTableLogin" prefWidth="101.0" text="Логин" />
+                        <TableColumn fx:id="StudentTableTelephone" prefWidth="102.0" text="Номер телефона" />
+                        <TableColumn fx:id="StudentTableGroup" prefWidth="104.0" text="Номер группы" />
+                        <TableColumn fx:id="StudentTableLogin" prefWidth="130.0" text="Логин" />
                     </columns>
                   </TableView>
+                  <Button fx:id="ViewingSchedule" layoutX="94.0" layoutY="321.0" mnemonicParsing="false" text="Просмотр расписания " />
+                  <Button layoutX="130.0" layoutY="467.0" mnemonicParsing="false" onMouseClicked="#UpdateServiceStudent" text="Обновить" />
+                  <Label layoutX="30.0" layoutY="112.0" text="ФИО:" />
+                  <Label layoutX="31.0" layoutY="184.0" text=" дд.мм:" />
+                  <Label layoutX="166.0" layoutY="184.0" text="гг:" />
+                  <Label layoutX="84.0" layoutY="247.0" text="номер телефона родителя:" />
                </children></AnchorPane>
             </content>
         </Tab>
@@ -38,13 +44,12 @@
             <content>
                 <AnchorPane fx:id="addUser" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="UserTable" layoutX="341.0" layoutY="87.0" prefHeight="344.0" prefWidth="518.0">
+                  <TableView fx:id="UserTable" layoutX="331.0" layoutY="87.0" prefHeight="356.0" prefWidth="528.0">
                     <columns>
-                      <TableColumn fx:id="UserTableId" prefWidth="42.0" text="ID" />
-                      <TableColumn fx:id="UserTableFIO" prefWidth="180.0" text="ФИО" />
-                        <TableColumn fx:id="UserTableDate" prefWidth="77.0" text="дд.мм" />
-                        <TableColumn fx:id="UserTableYear" prefWidth="60.0" text="гг" />
-                        <TableColumn fx:id="UserTableTelephone" prefWidth="158.0" text="Номер телефона родителя " />
+                      <TableColumn fx:id="UserTableFIO" prefWidth="184.0" text="ФИО" />
+                        <TableColumn fx:id="UserTableDate" prefWidth="100.0" text="дд.мм" />
+                        <TableColumn fx:id="UserTableYear" prefWidth="74.0" text="гг" />
+                        <TableColumn fx:id="UserTableTelephone" prefWidth="169.0" text="Номер телефона родителя " />
                     </columns>
                   </TableView>
                   <TextField fx:id="UserFIO" layoutX="49.0" layoutY="120.0" prefHeight="25.0" prefWidth="247.0" promptText="ФИО:" />
@@ -53,8 +58,14 @@
                   <TextField fx:id="UserTelephone" layoutX="85.0" layoutY="234.0" prefHeight="25.0" prefWidth="171.0" promptText="Номер телефона (родителя)" />
                   <TextField fx:id="UserLogin" layoutX="49.0" layoutY="290.0" prefHeight="25.0" prefWidth="137.0" promptText="Логин" />
                   <Button fx:id="createLogin" layoutX="198.0" layoutY="290.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Создать логин" />
-                  <Button layoutX="85.0" layoutY="360.0" mnemonicParsing="false" text="Добаваить " />
-                  <Button fx:id="deleteUser" layoutX="209.0" layoutY="360.0" mnemonicParsing="false" text="Удалить " />
+                  <Button fx:id="addStudent" layoutX="85.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#UpdateServiceUser" text="Добаваить " />
+                  <Button fx:id="deleteUser" layoutX="209.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#UpdateServiceUser" text="Удалить " />
+                  <Button layoutX="152.0" layoutY="418.0" mnemonicParsing="false" onMouseClicked="#UpdateServiceUser" text="Обновить " />
+                  <Label layoutX="49.0" layoutY="103.0" text="ФИО:" />
+                  <Label layoutX="50.0" layoutY="162.0" text="гг.мм:" />
+                  <Label layoutX="195.0" layoutY="162.0" text="гг:" />
+                  <Label layoutX="87.0" layoutY="217.0" text="номер телефона родителя:" />
+                  <Label layoutX="50.0" layoutY="273.0" text="логи:" />
                </children></AnchorPane>
             </content>
         </Tab>

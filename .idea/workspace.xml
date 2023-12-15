@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="920a1152-a566-445d-99b6-23c8734b5484" name="Changes" comment="Работа с окном администратора_ученик.">
+    <list default="true" id="920a1152-a566-445d-99b6-23c8734b5484" name="Changes" comment="Рандомный логин">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/TableUsers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/AdministratorStudents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/AdministratorStudents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/Authorization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/Authorization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/Registration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorStudents.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorStudents.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,13 +131,21 @@
       <option name="project" value="LOCAL" />
       <updated>1702565603988</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Рандомный логин">
+      <created>1702567224911</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702567224911</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Работа с окном администратора_ученик" />
     <MESSAGE value="Работа с окном администратора_ученик." />
-    <option name="LAST_COMMIT_MESSAGE" value="Работа с окном администратора_ученик." />
+    <MESSAGE value="Рандомный логин" />
+    <option name="LAST_COMMIT_MESSAGE" value="Рандомный логин" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
