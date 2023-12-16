@@ -17,6 +17,23 @@ public class DatabaseHandler {
         return connection;
     }
 
+    public void signCoach(Coach coach) {
+        String insert = "INSERT INTO coaches (coachesname, coachesinformation, coacheslogin)"
+                + "VALUES(?,?,?)";
+
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(insert);
+            prSt.setString(1, coach.getCoachFIO());
+            prSt.setString(2, coach.getCoachTelephone());
+            prSt.setString(3, coach.getCoachLogin());
+
+            prSt.executeUpdate();
+        }
+        catch (SQLException e) {throw new RuntimeException(e);}
+        catch (ClassNotFoundException e) {throw new RuntimeException(e);}
+    }
+
+
     public void signUser(Student student) {
         String insert = "INSERT INTO students (org_name, date_birth, org_year, telephone, org_group, login)"
                 + "VALUES(?,?,?,?,?,?)";
