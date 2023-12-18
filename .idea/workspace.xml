@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="920a1152-a566-445d-99b6-23c8734b5484" name="Changes" comment="отображение таблиц и редактирование данных">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/AdministratorCoach.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/Coach.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/Selection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorCoach.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/Selection.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/TableCoach.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/Authorization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/Authorization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/AdministratorCoach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/AdministratorCoach.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/AdministratorStudents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/AdministratorStudents.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/Registration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/TableUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/TableUsers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorCoach.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorCoach.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorStudents.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorStudents.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

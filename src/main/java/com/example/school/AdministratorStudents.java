@@ -114,9 +114,13 @@ public class AdministratorStudents {
     @FXML
     private Button editStudent;
     @FXML
+    private Button go;
+    @FXML
     protected void UpdateServiceUser(MouseEvent event){clickUpdateServiceUser();}
     @FXML
     protected void UpdateServiceStudent(MouseEvent event){clickUpdateServiceStudent();}
+    @FXML
+    protected void MouseCliked(MouseEvent event) throws IOException {SceneLoader.loadNewScene("Selection.fxml",go);}
 
     @FXML
     void initialize() {
@@ -129,7 +133,16 @@ public class AdministratorStudents {
         });
         deleteUser.setOnAction(event -> {
             try {
-                deleting();
+                deletingU();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        deleteStudent.setOnAction(event -> {
+            try {
+                deletingS();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             } catch (ClassNotFoundException e) {
@@ -166,13 +179,26 @@ public class AdministratorStudents {
 
     }
 
-    private void deleting() throws SQLException, ClassNotFoundException {
+    private void deletingU() throws SQLException, ClassNotFoundException {
         DatabaseHandler dbHandler = new DatabaseHandler();
         TableUsers selectedUser = UserTable.getSelectionModel().getSelectedItem();
 
         if (selectedUser != null) {
             int id = selectedUser.getUserId();
-            String login = UserLogin.getText();
+            dbHandler.deletingLine(id);
+        } else {
+            System.out.println("значит что-то не так с id");
+            // Обработка ситуации, когда selectedUser равен null
+        }
+
+
+    }
+    private void deletingS() throws SQLException, ClassNotFoundException {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        TableUsers selectedStudent = StudentTable.getSelectionModel().getSelectedItem();
+
+        if (selectedStudent != null) {
+            int id = selectedStudent.getUserId();
             dbHandler.deletingLine(id);
         } else {
             System.out.println("значит что-то не так с id");
@@ -249,7 +275,7 @@ public class AdministratorStudents {
             StudentTableDate.setCellValueFactory(new PropertyValueFactory<>("UsersDate"));
             StudentTableYear.setCellValueFactory(new PropertyValueFactory<>("UsersYear"));
             StudentTableTelephone.setCellValueFactory(new PropertyValueFactory<>("UsersTelephone"));
-            StudentTableGroup.setCellValueFactory(new PropertyValueFactory<>("StudentsGroupNumber"));
+            StudentTableGroup.setCellValueFactory(new PropertyValueFactory<>("group_name"));
             StudentTableLogin.setCellValueFactory(new PropertyValueFactory<>("StudentsLogin"));
 
 

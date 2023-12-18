@@ -5,20 +5,20 @@ public class Student {
     private String StudentsDate;
     private int StudentsYear;
     private String StudentsTelephone;
-    private String StudentsGroupNumber;
+    private int IDgroups;
     private String StudentsLogin;
 
     public Student() {
 
     }
 
-    public Student(String studentsFIO, String studentsDate, int studentsYear, String studentsTelephone, String studentsGroupNumber, String studentsLogin) {
-        this.StudentsFIO = studentsFIO;
-        this.StudentsDate = studentsDate;
-        this.StudentsYear = studentsYear;
-        this.StudentsTelephone = studentsTelephone;
-        this.StudentsGroupNumber = studentsGroupNumber;
-        this.StudentsLogin = studentsLogin;
+    public Student(String studentsFIO, String studentsDate, int studentsYear, String studentsTelephone, int IDgroups, String studentsLogin) {
+        StudentsFIO = studentsFIO;
+        StudentsDate = studentsDate;
+        StudentsYear = studentsYear;
+        StudentsTelephone = studentsTelephone;
+        this.IDgroups = IDgroups;
+        StudentsLogin = studentsLogin;
     }
 
     public String getStudentsFIO() {
@@ -53,12 +53,12 @@ public class Student {
         StudentsTelephone = studentsTelephone;
     }
 
-    public String getStudentsGroupNumber() {
-        return StudentsGroupNumber;
+    public int getIDgroups() {
+        return IDgroups;
     }
 
-    public void setStudentsGroupNumber(String studentsGroupNumber) {
-        StudentsGroupNumber = studentsGroupNumber;
+    public void setIDgroups(int IDgroups) {
+        this.IDgroups = IDgroups;
     }
 
     public String getStudentsLogin() {

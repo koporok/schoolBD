@@ -18,7 +18,7 @@ public class DatabaseHandler {
     }
 
     public void signCoach(Coach coach) {
-        String insert = "INSERT INTO coaches (coachesname, coachesinformation, coacheslogin)"
+        String insert = "INSERT INTO coaches (CoachFIO, CoachTelephone, CoachLogin)"
                 + "VALUES(?,?,?)";
 
         try {
@@ -35,7 +35,7 @@ public class DatabaseHandler {
 
 
     public void signUser(Student student) {
-        String insert = "INSERT INTO students (org_name, date_birth, org_year, telephone, org_group, login)"
+        String insert = "INSERT INTO students (org_name, date_birth, org_year, telephone, groupid, login)"
                 + "VALUES(?,?,?,?,?,?)";
 
         try {
@@ -44,7 +44,7 @@ public class DatabaseHandler {
             prSt.setString(2, student.getStudentsDate());
             prSt.setInt(3, student.getStudentsYear());
             prSt.setString(4, student.getStudentsTelephone());
-            prSt.setString(5, student.getStudentsGroupNumber());
+            prSt.setInt(5, student.getIDgroups());
             prSt.setString(6, student.getStudentsLogin());
             prSt.executeUpdate();
         }
@@ -95,7 +95,9 @@ public class DatabaseHandler {
             while (resultSet.next()) {
                 list_users.add(new TableUsers(resultSet.getInt("students_id"), resultSet.getString("org_name"),
                         resultSet.getString("date_birth"), resultSet.getInt("org_year"), resultSet.getString("telephone"),
-                        resultSet.getString("org_group"), resultSet.getString("login")));
+                        resultSet.getInt("groupid"), resultSet.getString("login"), resultSet.getInt("groupid"),
+                        resultSet.getString("group_name"), resultSet.getString("min_age"), resultSet.getString("max_age"),
+                        resultSet.getString("max_students"), resultSet.getString("coachid")));
             }
         } catch (SQLException | ClassNotFoundException e) {
             // Обработка исключений
@@ -117,7 +119,9 @@ public class DatabaseHandler {
     }
 
     public ObservableList<TableUsers> GetAllStudent() {
-        String select = "SELECT * FROM students WHERE login NOT IN ('null', 'administrator');";
+        String select = "SELECT * FROM students\n" +
+                "JOIN groups ON students.groupid = groups.groupid\n" +
+                "WHERE students.login NOT IN ('null', 'administrator');\n";
         ObservableList<TableUsers> list_users = FXCollections.observableArrayList();
         Connection connection = null;
         PreparedStatement prSt = null;
@@ -130,7 +134,9 @@ public class DatabaseHandler {
             while (resultSet.next()) {
                 list_users.add(new TableUsers(resultSet.getInt("students_id"), resultSet.getString("org_name"),
                         resultSet.getString("date_birth"), resultSet.getInt("org_year"), resultSet.getString("telephone"),
-                        resultSet.getString("org_group"), resultSet.getString("login")));
+                        resultSet.getInt("groupid"), resultSet.getString("login"), resultSet.getInt("groupid"),
+                        resultSet.getString("group_name"), resultSet.getString("min_age"), resultSet.getString("max_age"),
+                        resultSet.getString("max_students"), resultSet.getString("coachid")));
             }
         } catch (SQLException | ClassNotFoundException e) {
             // Обработка исключений
@@ -149,6 +155,40 @@ public class DatabaseHandler {
             }
         }
         return list_users;
+    }
+
+    public ObservableList<TableCoach> GetAllCoach() {
+        String select = "SELECT * FROM Columns;";
+        ObservableList<TableCoach> list_Coach= FXCollections.observableArrayList();
+        Connection connection = null;
+        PreparedStatement prSt = null;
+
+        try {
+            connection = getDbConnection();
+            prSt = connection.prepareStatement(select);
+            ResultSet resultSet = prSt.executeQuery();
+
+            while (resultSet.next()) {
+                list_Coach.add(new TableCoach(resultSet.getInt("CoachId"), resultSet.getString("CoachFIO"),
+                        resultSet.getString("CoachTelephone"), resultSet.getString("CoachLogin")));
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            // Обработка исключений
+            e.printStackTrace();
+        } finally {
+            try {
+                if (prSt != null) {
+                    prSt.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                // Обработка исключений при закрытии ресурсов
+                e.printStackTrace();
+            }
+        }
+        return list_Coach;
     }
     public void deletingLine ( int id) throws SQLException, ClassNotFoundException {
         String insert = "DELETE FROM students WHERE students_id = " + id +";";

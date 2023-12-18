@@ -42,11 +42,11 @@ public class Registration {
         String StudentsDate = date.getText();
         int StudentsYear = Integer.parseInt(year.getText());
         String StudentsTelephone = telephone.getText();
-        String StudentsGroupNumber = "";
+        int IDgroups = 1;
         String StudentsLogin = "null";
 
         if (!FIO.equals("")&&!date.equals("")&&!year.equals("")&&!telephone.equals("")){
-            Student student = new Student(StudentsFIO,StudentsDate,StudentsYear,StudentsTelephone,StudentsGroupNumber,StudentsLogin);
+            Student student = new Student(StudentsFIO,StudentsDate,StudentsYear,StudentsTelephone,IDgroups,StudentsLogin);
             dbHandler.signUser(student);
 
 

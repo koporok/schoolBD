@@ -37,6 +37,7 @@
                   <Label layoutX="31.0" layoutY="184.0" text=" дд.мм:" />
                   <Label layoutX="166.0" layoutY="184.0" text="гг:" />
                   <Label layoutX="84.0" layoutY="247.0" text="номер телефона родителя:" />
+                  <Button fx:id="go" layoutX="19.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#MouseCliked" text="Назад" />
                </children></AnchorPane>
             </content>
         </Tab>

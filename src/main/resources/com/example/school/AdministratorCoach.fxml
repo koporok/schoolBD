@@ -22,7 +22,7 @@
                         <TextField fx:id="CoachTelephone" layoutX="34.0" layoutY="204.0" promptText="Номер телевона" />
                         <Button fx:id="editCoach" layoutX="108.0" layoutY="363.0" mnemonicParsing="false" onMouseClicked="#UpdateServiceCoach" text="Редактировать " />
                         <Button fx:id="deleteCoach" layoutX="127.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#UpdateServiceCoach" text="Удалить " />
-                        <TableView fx:id="StudentTable" layoutX="297.0" layoutY="99.0" prefHeight="374.0" prefWidth="596.0">
+                        <TableView fx:id="CoachTable" layoutX="297.0" layoutY="99.0" prefHeight="374.0" prefWidth="596.0">
                             <columns>
                                 <TableColumn fx:id="CoachTableFIO" prefWidth="158.0" text="ФИО" />
                                 <TableColumn fx:id="CoachTableTelephone" prefWidth="154.0" text="Номер телефона" />
@@ -32,10 +32,11 @@
                         <Button fx:id="ob" layoutX="124.0" layoutY="473.0" mnemonicParsing="false" onMouseClicked="#UpdateServiceCoach" text="Обновить" />
                         <Label layoutX="30.0" layoutY="112.0" text="ФИО:" />
                         <Label layoutX="34.0" layoutY="180.0" text="номер телефона " />
-                  <Button fx:id="CoachAdd" layoutX="99.0" layoutY="317.0" mnemonicParsing="false" text="Добавить тренера " />
+                  <Button fx:id="CoachAdd" layoutX="99.0" layoutY="317.0" mnemonicParsing="false" onMouseClicked="#UpdateServiceCoach" text="Добавить тренера " />
                   <Label layoutX="34.0" layoutY="242.0" text="Логин" />
                   <Button fx:id="createLogin" layoutX="191.0" layoutY="265.0" mnemonicParsing="false" text="Создать логин " />
                   <TextField fx:id="login" layoutX="34.0" layoutY="265.0" promptText="логин" />
+                  <Button fx:id="go" layoutX="19.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#MouseCliked" text="Назад" />
                     </children></AnchorPane>
             </content>
         </Tab>

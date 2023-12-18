@@ -1,14 +1,18 @@
 package com.example.school;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -27,13 +31,16 @@ public class AdministratorCoach {
     private TextField CoachFIO;
 
     @FXML
-    private TableColumn<?, ?> CoachTableFIO;
+    private TableView<TableCoach> CoachTable;
 
     @FXML
-    private TableColumn<?, ?> CoachTableLogin;
+    private TableColumn<TableCoach, String> CoachTableFIO;
 
     @FXML
-    private TableColumn<?, ?> CoachTableTelephone;
+    private TableColumn<TableCoach, String> CoachTableLogin;
+
+    @FXML
+    private TableColumn<TableCoach, String> CoachTableTelephone;
 
     @FXML
     private TextField CoachTelephone;
@@ -64,14 +71,20 @@ public class AdministratorCoach {
 
     @FXML
     private Button createLogin;
+    @FXML
+    private Button go;
 
     @FXML
-    void UpdateServiceCoach(MouseEvent event) {
+    void UpdateServiceCoach(MouseEvent event) {clickUpdateServiceCoach();}
+    @FXML
+    protected void MouseCliked(MouseEvent event) throws IOException {SceneLoader.loadNewScene("Selection.fxml",go);}
 
-    }
 
     @FXML
     void initialize() {
+
+        CoachAdd.setOnAction(event -> {signUpNewCoach();});
+
         createLogin.setOnAction(event -> {
             String randomCombination = generateRandomCombination(5);
             login.setText("CreatE"+randomCombination);
@@ -86,6 +99,40 @@ public class AdministratorCoach {
             sb.append(characters.charAt(random.nextInt(characters.length())));
         }
         return sb.toString();
+    }
+
+    private void signUpNewCoach() {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+
+        String FIO = CoachFIO.getText();
+        String Telephone = CoachTelephone.getText();
+        String Login = login.getText();
+
+        if (!FIO.equals("")&&!Telephone.equals("")&&!Login.equals("")){
+            Coach coach = new Coach(FIO,Telephone,Login);
+            dbHandler.signCoach(coach);
+
+
+            //прописать ошибку
+        }
+
+        // после подачи заявления выходит уведомление и автоматичести переходим
+
+    }
+    private void clickUpdateServiceCoach() {
+        try {
+            DatabaseHandler dbHandler = new DatabaseHandler();
+
+            ObservableList<TableCoach> listCoach = dbHandler.GetAllCoach();
+
+            CoachTableFIO.setCellValueFactory(new PropertyValueFactory<>("CoachFIO"));
+            CoachTableTelephone.setCellValueFactory(new PropertyValueFactory<>("CoachTelephone"));
+            CoachTableLogin.setCellValueFactory(new PropertyValueFactory<>("CoachLogin"));
+
+            CoachTable.setItems(listCoach);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
