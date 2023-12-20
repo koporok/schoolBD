@@ -31,16 +31,16 @@ public class AdministratorCoach {
     private TextField CoachFIO;
 
     @FXML
-    private TableView<TableCoach> CoachTable;
+    private TableView<TableStudentCoachClasses> CoachTable;
 
     @FXML
-    private TableColumn<TableCoach, String> CoachTableFIO;
+    private TableColumn<TableStudentCoachClasses, String> CoachTableFIO;
 
     @FXML
-    private TableColumn<TableCoach, String> CoachTableLogin;
+    private TableColumn<TableStudentCoachClasses, String> CoachTableLogin;
 
     @FXML
-    private TableColumn<TableCoach, String> CoachTableTelephone;
+    private TableColumn<TableStudentCoachClasses, String> CoachTableTelephone;
 
     @FXML
     private TextField CoachTelephone;
@@ -52,7 +52,7 @@ public class AdministratorCoach {
     private AnchorPane Student;
 
     @FXML
-    private TableView<?> StudentTable;
+    private TableView<TableStudentCoachClasses> StudentTable;
 
     @FXML
     private Tab User;
@@ -123,7 +123,7 @@ public class AdministratorCoach {
         try {
             DatabaseHandler dbHandler = new DatabaseHandler();
 
-            ObservableList<TableCoach> listCoach = dbHandler.GetAllCoach();
+            ObservableList<TableStudentCoachClasses> listCoach = dbHandler.GetAllStudent();
 
             CoachTableFIO.setCellValueFactory(new PropertyValueFactory<>("CoachFIO"));
             CoachTableTelephone.setCellValueFactory(new PropertyValueFactory<>("CoachTelephone"));

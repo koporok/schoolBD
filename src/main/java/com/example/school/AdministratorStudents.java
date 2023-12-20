@@ -37,25 +37,25 @@ public class AdministratorStudents {
     private TextField StudentFIO;
 
     @FXML
-    private TableView<TableUsers> StudentTable;
+    private TableView<TableStudentCoachClasses> StudentTable;
 
     @FXML
-    private TableColumn<TableUsers, String> StudentTableDate;
+    private TableColumn<TableStudentCoachClasses, String> StudentTableDate;
 
     @FXML
-    private TableColumn<TableUsers, String> StudentTableFIO;
+    private TableColumn<TableStudentCoachClasses, String> StudentTableFIO;
 
     @FXML
-    private TableColumn<TableUsers, String> StudentTableGroup;
+    private TableColumn<TableStudentCoachClasses, String> StudentTableGroup;
 
     @FXML
-    private TableColumn<TableUsers, String> StudentTableLogin;
+    private TableColumn<TableStudentCoachClasses, String> StudentTableLogin;
 
     @FXML
-    private TableColumn<TableUsers, String> StudentTableTelephone;
+    private TableColumn<TableStudentCoachClasses, String> StudentTableTelephone;
 
     @FXML
-    private TableColumn<TableUsers, Integer> StudentTableYear;
+    private TableColumn<TableStudentCoachClasses, Integer> StudentTableYear;
 
     @FXML
     private TextField StudentTelephone;
@@ -166,12 +166,12 @@ public class AdministratorStudents {
         });
         StudentTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-                TableUsers selectedUser = StudentTable.getSelectionModel().getSelectedItem(); // Получение выбранного пользователя
+                TableStudentCoachClasses selectedUser = StudentTable.getSelectionModel().getSelectedItem(); // Получение выбранного пользователя
 
-                StudentFIO.setText(selectedUser.getUsersFIO());
-                StudentDate.setText(selectedUser.getUsersDate());
-                StudentYear.setText(String.valueOf(selectedUser.getUsersYear()));
-                StudentTelephone.setText(selectedUser.getUsersTelephone());
+                StudentFIO.setText(selectedUser.getStudentName());
+                StudentDate.setText(selectedUser.getStudentDate());
+                StudentYear.setText(String.valueOf(selectedUser.getStudentYaer()));
+                StudentTelephone.setText(selectedUser.getStudentTelephone());
             }
         });
 
@@ -195,10 +195,10 @@ public class AdministratorStudents {
     }
     private void deletingS() throws SQLException, ClassNotFoundException {
         DatabaseHandler dbHandler = new DatabaseHandler();
-        TableUsers selectedStudent = StudentTable.getSelectionModel().getSelectedItem();
+        TableStudentCoachClasses selectedStudent = StudentTable.getSelectionModel().getSelectedItem();
 
         if (selectedStudent != null) {
-            int id = selectedStudent.getUserId();
+            int id = selectedStudent.getStudentsId();
             dbHandler.deletingLine(id);
         } else {
             System.out.println("значит что-то не так с id");
@@ -268,19 +268,19 @@ public class AdministratorStudents {
             DatabaseHandler dbHandler = new DatabaseHandler();
 
             // Получение списка пользователей
-            ObservableList<TableUsers> listService = dbHandler.GetAllStudent();
+            ObservableList<TableStudentCoachClasses> list = dbHandler.GetAllStudent();
 
             // Привязка полей TableView к свойствам объектов TableUsers
-            StudentTableFIO.setCellValueFactory(new PropertyValueFactory<>("UsersFIO"));
-            StudentTableDate.setCellValueFactory(new PropertyValueFactory<>("UsersDate"));
-            StudentTableYear.setCellValueFactory(new PropertyValueFactory<>("UsersYear"));
-            StudentTableTelephone.setCellValueFactory(new PropertyValueFactory<>("UsersTelephone"));
-            StudentTableGroup.setCellValueFactory(new PropertyValueFactory<>("group_name"));
-            StudentTableLogin.setCellValueFactory(new PropertyValueFactory<>("StudentsLogin"));
+            StudentTableFIO.setCellValueFactory(new PropertyValueFactory<>("StudentName"));
+            StudentTableDate.setCellValueFactory(new PropertyValueFactory<>("StudentDate"));
+            StudentTableYear.setCellValueFactory(new PropertyValueFactory<>("StudentYaer"));
+            StudentTableTelephone.setCellValueFactory(new PropertyValueFactory<>("StudentTelephone"));
+            StudentTableGroup.setCellValueFactory(new PropertyValueFactory<>("GroupName"));
+            StudentTableLogin.setCellValueFactory(new PropertyValueFactory<>("StudentLogin"));
 
 
             // Установка данных в TableView
-            StudentTable.setItems(listService);
+            StudentTable.setItems(list);
         } catch (Exception e) {
             e.printStackTrace(); // Обработка исключений
         }

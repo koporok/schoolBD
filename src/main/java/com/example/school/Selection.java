@@ -41,7 +41,7 @@ public class Selection {
         });
         groups.setOnAction(event -> {
             try {
-                SceneLoader.loadNewScene("Authorization.fxml",groups);
+                SceneLoader.loadNewScene("AdministratorGroup.fxml",groups);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

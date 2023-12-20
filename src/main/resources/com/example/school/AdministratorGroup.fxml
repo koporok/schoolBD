@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="907.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.school.AdministratorGroup">
+    <tabs>
+        <Tab text="Данные о группах">
+            <content>
+                <AnchorPane fx:id="Student" minHeight="0.0" minWidth="0.0" prefHeight="538.0" prefWidth="946.0">
+                    <children>
+                        <TextField fx:id="CoachFIO" layoutX="30.0" layoutY="135.0" prefHeight="25.0" prefWidth="154.0" promptText="Номер группы:" />
+                        <TextField fx:id="CoachTelephone" layoutX="33.0" layoutY="189.0" promptText="количество учеников" />
+                        <Button fx:id="editCoach" layoutX="151.0" layoutY="417.0" mnemonicParsing="false" onMouseClicked="#UpdateServiceCoach" prefHeight="25.0" prefWidth="140.0" text="Редактировать группу" />
+                        <Button fx:id="deleteCoach" layoutX="46.0" layoutY="461.0" mnemonicParsing="false" onMouseClicked="#UpdateServiceCoach" text="Удалить группу" />
+                        <TableView fx:id="CoachTable" layoutX="297.0" layoutY="99.0" prefHeight="374.0" prefWidth="275.0">
+                            <columns>
+                                <TableColumn fx:id="CoachTableFIO" prefWidth="115.0" text="Номер групп" />
+                                <TableColumn fx:id="CoachTableTelephone" prefWidth="159.0" text="тренер " />
+                            </columns>
+                        </TableView>
+                        <Button fx:id="ob" layoutX="184.0" layoutY="462.0" mnemonicParsing="false" onMouseClicked="#UpdateServiceCoach" text="Обновить" />
+                        <Label layoutX="32.0" layoutY="100.0" text="Номер группы:" />
+                        <Label layoutX="34.0" layoutY="172.0" text="Количество учеников:" />
+                        <Button fx:id="CoachAdd" layoutX="31.0" layoutY="417.0" mnemonicParsing="false" onMouseClicked="#UpdateServiceCoach" prefHeight="25.0" prefWidth="112.0" text="Добавить группа" />
+                        <Label layoutX="35.0" layoutY="229.0" text="Минимальнй возраст " />
+                        <TextField fx:id="login" layoutX="33.0" layoutY="246.0" />
+                        <Button fx:id="go" layoutX="19.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#MouseCliked" text="Назад" />
+                  <Label layoutX="33.0" layoutY="278.0" text="Максимальнй возраст " />
+                  <TextField fx:id="login1" layoutX="33.0" layoutY="295.0" />
+                  <MenuButton fx:id="trainersMenuButton" layoutX="31.0" layoutY="356.0" mnemonicParsing="false" text="MenuButton">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                  </MenuButton>
+                  <TableView fx:id="CoachTable1" layoutX="593.0" layoutY="100.0" prefHeight="374.0" prefWidth="275.0">
+                     <columns>
+                        <TableColumn fx:id="CoachTableFIO1" prefWidth="274.0" text="ФИО учеников " />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="34.0" layoutY="330.0" text="Тренер" />
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+        <Tab fx:id="User" text="Расписание групп">
+            <content>
+                <AnchorPane fx:id="addUser" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <DatePicker layoutX="70.0" layoutY="191.0" />
+                        <SplitMenuButton layoutX="533.0" layoutY="107.0" mnemonicParsing="false" text="SplitMenuButton">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="тренер 1" />
+                                <MenuItem mnemonicParsing="false" text="тренер 2" />
+                            </items>
+                        </SplitMenuButton>
+                        <Label layoutX="437.0" layoutY="111.0" text="15.00-15.45:" />
+                        <Label layoutX="437.0" layoutY="174.0" text="16.00-16.45:" />
+                        <Label layoutX="437.0" layoutY="234.0" text="17.00-17.45:" />
+                        <Label layoutX="437.0" layoutY="285.0" text="18.00-18.45:" />
+                        <Label layoutX="437.0" layoutY="345.0" text="19.00-19.45:" />
+                  <SplitMenuButton layoutX="533.0" layoutY="170.0" mnemonicParsing="false" text="SplitMenuButton">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="тренер 1" />
+                        <MenuItem mnemonicParsing="false" text="тренер 2" />
+                     </items>
+                  </SplitMenuButton>
+                  <SplitMenuButton layoutX="533.0" layoutY="230.0" mnemonicParsing="false" text="SplitMenuButton">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="тренер 1" />
+                        <MenuItem mnemonicParsing="false" text="тренер 2" />
+                     </items>
+                  </SplitMenuButton>
+                  <SplitMenuButton layoutX="533.0" layoutY="281.0" mnemonicParsing="false" text="SplitMenuButton">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="тренер 1" />
+                        <MenuItem mnemonicParsing="false" text="тренер 2" />
+                     </items>
+                  </SplitMenuButton>
+                  <SplitMenuButton layoutX="533.0" layoutY="341.0" mnemonicParsing="false" text="SplitMenuButton">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="тренер 1" />
+                        <MenuItem mnemonicParsing="false" text="тренер 2" />
+                     </items>
+                  </SplitMenuButton>
+                  <SplitMenuButton layoutX="92.0" layoutY="145.0" mnemonicParsing="false" prefHeight="9.0" prefWidth="130.0" text="SplitMenuButton">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="тренер 1" />
+                        <MenuItem mnemonicParsing="false" text="тренер 2" />
+                     </items>
+                  </SplitMenuButton>
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
