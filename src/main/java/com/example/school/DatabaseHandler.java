@@ -1,5 +1,11 @@
 package com.example.school;
 
+import com.example.school.classes.Coach;
+import com.example.school.classes.Student;
+import com.example.school.table.TableCoach;
+import com.example.school.table.TableStudentCoachClasses;
+import com.example.school.table.TableStudents;
+import com.example.school.table.TableUsers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -68,6 +74,22 @@ public class DatabaseHandler {
         }
     }
 
+    public void addStudentAttendance(int id) throws SQLException {
+        String select = "INSERT INTO Attendance (students_id, scheduleid, attendance_flag)"
+                + "VALUES(?, 1,, '0' )"; // Определение запроса SQL
+        try {
+            Connection connection = getDbConnection(); // получение соединения с базой данных
+            PreparedStatement prSt = connection.prepareStatement(select);
+            prSt.setInt(1, id);
+            prSt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace(); // Обработка исключений
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     //добавляем логин и пользователь становится учеником (меджик)
     public ResultSet getUser(Student student) {
         ResultSet reSet = null;
@@ -85,7 +107,9 @@ public class DatabaseHandler {
 
     //берё данные для таблицы заявок
     public ObservableList<TableUsers> GetAllUsers() {
-        String select = "SELECT * FROM students WHERE login = 'null';";
+        String select = "SELECT * FROM students\n" +
+                "JOIN groups ON students.groupid = groups.groupid\n" +
+                "WHERE login = 'null';";
         ObservableList<TableUsers> list_users = FXCollections.observableArrayList();
         Connection connection = null;
         PreparedStatement prSt = null;
@@ -118,6 +142,79 @@ public class DatabaseHandler {
         }
         return list_users;
     }
+
+    public ObservableList<TableStudents> GetAllStudeht1() {
+        String select = "SELECT * FROM students\n" +
+                "JOIN groups ON students.groupid = groups.groupid\n" +
+                "WHERE login <> 'null';";
+        ObservableList<TableStudents> list_users = FXCollections.observableArrayList();
+        Connection connection = null;
+        PreparedStatement prSt = null;
+
+        try {
+            connection = getDbConnection();
+            prSt = connection.prepareStatement(select);
+            ResultSet resultSet = prSt.executeQuery();
+
+            while (resultSet.next()) {
+                list_users.add(new TableStudents(resultSet.getInt("students_id"), resultSet.getString("org_name"),
+                        resultSet.getString("date_birth"), resultSet.getInt("org_year"), resultSet.getString("telephone"),
+                        resultSet.getInt("groupid"), resultSet.getString("login"), resultSet.getInt("groupid"), resultSet.getString("group_name"), resultSet.getInt("min_age"), resultSet.getInt("max_age"), resultSet.getInt("max_students"), resultSet.getInt("coachid")));
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            // Обработка исключений
+            e.printStackTrace();
+        } finally {
+            try {
+                if (prSt != null) {
+                    prSt.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                // Обработка исключений при закрытии ресурсов
+                e.printStackTrace();
+            }
+        }
+        return list_users;
+    }
+
+    public ObservableList<TableCoach> GetAllCoach() {
+        String select = "SELECT * FROM coaches;";
+        ObservableList<TableCoach> list_users = FXCollections.observableArrayList();
+        Connection connection = null;
+        PreparedStatement prSt = null;
+
+        try {
+            connection = getDbConnection();
+            prSt = connection.prepareStatement(select);
+            ResultSet resultSet = prSt.executeQuery();
+
+            while (resultSet.next()) {
+                list_users.add(new TableCoach(resultSet.getInt("coachid"), resultSet.getString("coachfio"),
+                        resultSet.getString("coachtelephone"), resultSet.getString("coachlogin")));
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            // Обработка исключений
+            e.printStackTrace();
+        } finally {
+            try {
+                if (prSt != null) {
+                    prSt.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                // Обработка исключений при закрытии ресурсов
+                e.printStackTrace();
+            }
+        }
+        return list_users;
+    }
+
+
 
     public ObservableList<TableStudentCoachClasses> GetAllStudent() {
         String select = "SELECT *\n" +
@@ -162,8 +259,8 @@ public class DatabaseHandler {
         return list;
     }
 
-    public void deletingLine ( int id) throws SQLException, ClassNotFoundException {
-        String insert = "DELETE FROM students WHERE students_id = " + id +";";
+    public void deletingLine (String nameTable,String column, int id) throws SQLException, ClassNotFoundException {
+        String insert = "DELETE FROM "+nameTable+" WHERE "+column+" = " + id +";";
 
         PreparedStatement prSt = getDbConnection().prepareStatement(insert);
         prSt.executeUpdate();

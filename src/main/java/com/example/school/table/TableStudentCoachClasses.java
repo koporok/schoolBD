@@ -1,4 +1,4 @@
-package com.example.school;
+package com.example.school.table;
 
 import java.util.Date;
 

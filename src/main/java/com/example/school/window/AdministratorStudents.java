@@ -1,10 +1,14 @@
-package com.example.school;
+package com.example.school.window;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import com.example.school.DatabaseHandler;
+import com.example.school.SceneLoader;
+import com.example.school.table.TableStudents;
+import com.example.school.table.TableUsers;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -16,7 +20,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-import javafx.application.Application;
 import java.util.Random;
 
 public class AdministratorStudents {
@@ -37,25 +40,25 @@ public class AdministratorStudents {
     private TextField StudentFIO;
 
     @FXML
-    private TableView<TableStudentCoachClasses> StudentTable;
+    private TableView<TableStudents> StudentTable;
 
     @FXML
-    private TableColumn<TableStudentCoachClasses, String> StudentTableDate;
+    private TableColumn<TableStudents, String> StudentTableDate;
 
     @FXML
-    private TableColumn<TableStudentCoachClasses, String> StudentTableFIO;
+    private TableColumn<TableStudents, String> StudentTableFIO;
 
     @FXML
-    private TableColumn<TableStudentCoachClasses, String> StudentTableGroup;
+    private TableColumn<TableStudents, String> StudentTableGroup;
 
     @FXML
-    private TableColumn<TableStudentCoachClasses, String> StudentTableLogin;
+    private TableColumn<TableStudents, String> StudentTableLogin;
 
     @FXML
-    private TableColumn<TableStudentCoachClasses, String> StudentTableTelephone;
+    private TableColumn<TableStudents, String> StudentTableTelephone;
 
     @FXML
-    private TableColumn<TableStudentCoachClasses, Integer> StudentTableYear;
+    private TableColumn<TableStudents, Integer> StudentTableYear;
 
     @FXML
     private TextField StudentTelephone;
@@ -124,6 +127,8 @@ public class AdministratorStudents {
 
     @FXML
     void initialize() {
+        clickUpdateServiceUser();
+        clickUpdateServiceStudent();
         addStudent.setOnAction(event -> {
             try {
                 addS();
@@ -166,7 +171,7 @@ public class AdministratorStudents {
         });
         StudentTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-                TableStudentCoachClasses selectedUser = StudentTable.getSelectionModel().getSelectedItem(); // Получение выбранного пользователя
+                TableStudents selectedUser = StudentTable.getSelectionModel().getSelectedItem(); // Получение выбранного пользователя
 
                 StudentFIO.setText(selectedUser.getStudentName());
                 StudentDate.setText(selectedUser.getStudentDate());
@@ -184,8 +189,10 @@ public class AdministratorStudents {
         TableUsers selectedUser = UserTable.getSelectionModel().getSelectedItem();
 
         if (selectedUser != null) {
+            String nameTable = "students";
+            String column = "students_id";
             int id = selectedUser.getUserId();
-            dbHandler.deletingLine(id);
+            dbHandler.deletingLine(nameTable,column, id);
         } else {
             System.out.println("значит что-то не так с id");
             // Обработка ситуации, когда selectedUser равен null
@@ -195,11 +202,13 @@ public class AdministratorStudents {
     }
     private void deletingS() throws SQLException, ClassNotFoundException {
         DatabaseHandler dbHandler = new DatabaseHandler();
-        TableStudentCoachClasses selectedStudent = StudentTable.getSelectionModel().getSelectedItem();
+        TableStudents selectedStudent = StudentTable.getSelectionModel().getSelectedItem();
 
         if (selectedStudent != null) {
+            String nameTable = "students";
+            String column = "students_id";
             int id = selectedStudent.getStudentsId();
-            dbHandler.deletingLine(id);
+            dbHandler.deletingLine(nameTable, column, id);
         } else {
             System.out.println("значит что-то не так с id");
             // Обработка ситуации, когда selectedUser равен null
@@ -219,6 +228,7 @@ public class AdministratorStudents {
 
             if (!login.equals("")) {
                 dbHandler.addStudent(login, id);
+                dbHandler.addStudentAttendance(id);
             } else {
                 // Обработка ситуации, когда login пустой
             }
@@ -268,7 +278,7 @@ public class AdministratorStudents {
             DatabaseHandler dbHandler = new DatabaseHandler();
 
             // Получение списка пользователей
-            ObservableList<TableStudentCoachClasses> list = dbHandler.GetAllStudent();
+            ObservableList<TableStudents> list = dbHandler.GetAllStudeht1();
 
             // Привязка полей TableView к свойствам объектов TableUsers
             StudentTableFIO.setCellValueFactory(new PropertyValueFactory<>("StudentName"));

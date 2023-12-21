@@ -5,7 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="920a1152-a566-445d-99b6-23c8734b5484" name="Changes" comment="работа с группами">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/table/TableCoach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/table/TableStudents.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/AdministratorCoach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/AdministratorCoach.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/AdministratorGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/AdministratorGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/AdministratorStudents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/AdministratorStudents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/Authorization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/Authorization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/Coach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/classes/Coach.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/classes/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/Registration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/Selection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/Selection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/classes/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/TableOfCoaches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/TableOfCoaches.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/TableStudentCoachClasses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/table/TableStudentCoachClasses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/TableUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/table/TableUsers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorCoach.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorCoach.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorGroup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorGroup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorStudents.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorStudents.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/Authorization.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/Authorization.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/Registration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/Registration.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/Selection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/Selection.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/TableOfCoaches.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/TableOfCoaches.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,23 +63,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "editor.preferences.tabs"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="DatabaseHandler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.school.DatabaseHandler" />
       <module name="school" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.school.*" />
+          <option name="PATTERN" value="com.example.school.table.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -68,7 +93,7 @@
       <module name="school" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.school.*" />
+          <option name="PATTERN" value="com.example.school.table.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -160,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703147837741</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="работа с группами">
+      <created>1703160896117</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1703160896117</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -1,4 +1,4 @@
-package com.example.school;
+package com.example.school.table;
 
 public class TableUsers {
     private int UserId;

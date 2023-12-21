@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane accessibleRole="BUTTON" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.school.Authorization">
+<AnchorPane accessibleRole="BUTTON" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.school.window.Authorization">
     <children>
         <Label contentDisplay="TOP" layoutX="229.0" layoutY="81.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="143.0" text="Авторизация " textAlignment="CENTER" textOverrun="CLIP">
             <font>

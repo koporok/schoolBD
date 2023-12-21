@@ -9,7 +9,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="907.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.school.AdministratorStudents">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="907.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.school.window.AdministratorStudents">
     <tabs>
         <Tab text="Данные о ребёнке ">
             <content>
@@ -32,7 +32,6 @@
                     </columns>
                   </TableView>
                   <Button fx:id="ViewingSchedule" layoutX="94.0" layoutY="321.0" mnemonicParsing="false" text="Просмотр расписания " />
-                  <Button layoutX="130.0" layoutY="467.0" mnemonicParsing="false" onMouseClicked="#UpdateServiceStudent" text="Обновить" />
                   <Label layoutX="30.0" layoutY="112.0" text="ФИО:" />
                   <Label layoutX="31.0" layoutY="184.0" text=" дд.мм:" />
                   <Label layoutX="166.0" layoutY="184.0" text="гг:" />

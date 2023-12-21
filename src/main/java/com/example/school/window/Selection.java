@@ -1,8 +1,10 @@
-package com.example.school;
+package com.example.school.window;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.example.school.SceneLoader;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 

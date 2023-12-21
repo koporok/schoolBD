@@ -1,4 +1,4 @@
-package com.example.school;
+package com.example.school.classes;
 
 public class Coach {
     private String CoachFIO;

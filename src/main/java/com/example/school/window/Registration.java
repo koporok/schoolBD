@@ -1,13 +1,13 @@
-package com.example.school;
+package com.example.school.window;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import com.example.school.DatabaseHandler;
+import com.example.school.SceneLoader;
+import com.example.school.classes.Student;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -31,7 +31,8 @@ public class Registration {
     @FXML
     private TextField year;
     @FXML
-    protected void MouseCliked(MouseEvent event) throws IOException {SceneLoader.loadNewScene("Authorization.fxml",Exit);}
+    protected void MouseCliked(MouseEvent event) throws IOException {
+        SceneLoader.loadNewScene("Authorization.fxml",Exit);}
     @FXML
     void initialize(){give.setOnAction(event -> {signUpNewUser();});}
 

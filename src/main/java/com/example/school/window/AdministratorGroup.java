@@ -1,9 +1,12 @@
-package com.example.school;
+package com.example.school.window;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
+
+import com.example.school.DatabaseHandler;
+import com.example.school.classes.Group;
+import com.example.school.SceneLoader;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -122,12 +125,11 @@ public class AdministratorGroup {
     private Button ob;
 
     @FXML
-    void MouseCliked(MouseEvent event) {
-
-    }
+    protected void MouseCliked(MouseEvent event) throws IOException {SceneLoader.loadNewScene("Selection.fxml",go);}
 
     @FXML
-    void UpdateServiceCoach(MouseEvent event) throws IOException {SceneLoader.loadNewScene("Selection.fxml",go);}
+    void UpdateServiceCoach(MouseEvent event) throws IOException {
+        SceneLoader.loadNewScene("Selection.fxml",go);}
 
     @FXML
     void TableOfCoaches(MouseEvent event) throws IOException {SceneLoader.UploadSecondScene("TableOfCoaches.fxml",AddTrainer);
