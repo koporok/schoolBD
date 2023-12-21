@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="920a1152-a566-445d-99b6-23c8734b5484" name="Changes" comment="работа с базой данны">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/Group.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/TableOfCoaches.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/TableOfCoaches.fxml" afterDir="false" />
+    <list default="true" id="920a1152-a566-445d-99b6-23c8734b5484" name="Changes" comment="работа с группами">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/AdministratorGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/AdministratorGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/SceneLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/SceneLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorGroup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorGroup.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703074249660</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="работа с группами">
+      <created>1703147837741</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1703147837741</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -169,7 +169,8 @@
     <MESSAGE value="Рандомный логин" />
     <MESSAGE value="отображение таблиц и редактирование данных" />
     <MESSAGE value="работа с базой данны" />
-    <option name="LAST_COMMIT_MESSAGE" value="работа с базой данны" />
+    <MESSAGE value="работа с группами" />
+    <option name="LAST_COMMIT_MESSAGE" value="работа с группами" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
