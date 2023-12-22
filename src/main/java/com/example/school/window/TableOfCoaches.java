@@ -4,13 +4,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.example.school.DatabaseHandler;
+import com.example.school.table.TableCoach;
 import com.example.school.table.TableStudentCoachClasses;
+import com.example.school.table.TableUsers;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 
 public class TableOfCoaches {
 
@@ -21,10 +25,10 @@ public class TableOfCoaches {
     private URL location;
 
     @FXML
-    private TableColumn<TableStudentCoachClasses, String> FIO;
+    private TableColumn<TableCoach, String> FIO;
 
     @FXML
-    private TableView<TableStudentCoachClasses> Table;
+    private TableView<TableCoach> Table;
 
     @FXML
     private Button choose;
@@ -32,10 +36,8 @@ public class TableOfCoaches {
     @FXML
     void initialize() {
         DatabaseHandler dbHandler = new DatabaseHandler();
-        ObservableList<TableStudentCoachClasses> listService = dbHandler.GetAllStudent();
-        FIO.setCellValueFactory(new PropertyValueFactory<>("CoachFIO"));
+        ObservableList<TableCoach> listService = dbHandler.GetAllCoach();
+        FIO.setCellValueFactory(new PropertyValueFactory<>("coachFIO"));
         Table.setItems(listService);
     }
-
-
 }

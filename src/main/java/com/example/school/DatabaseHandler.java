@@ -1,11 +1,9 @@
 package com.example.school;
 
 import com.example.school.classes.Coach;
+import com.example.school.classes.Group;
 import com.example.school.classes.Student;
-import com.example.school.table.TableCoach;
-import com.example.school.table.TableStudentCoachClasses;
-import com.example.school.table.TableStudents;
-import com.example.school.table.TableUsers;
+import com.example.school.table.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -23,6 +21,25 @@ public class DatabaseHandler {
         return connection;
     }
 
+
+    //создать группу
+    public void signGroup(Group group) {
+        String insert = "INSERT INTO coaches (group_name, min_age, max_age, max_students, coachid)"
+                + "VALUES(?,?,?,?,?)";
+
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(insert);
+            prSt.setString(1, group.getFIO());
+            prSt.setInt(2, group.getNumber());
+            prSt.setInt(3, group.getMinAge());
+            prSt.setInt(3, group.getMaxAge());
+            prSt.setString(3, group.getCoach());
+
+            prSt.executeUpdate();
+        }
+        catch (SQLException e) {throw new RuntimeException(e);}
+        catch (ClassNotFoundException e) {throw new RuntimeException(e);}
+    }
     //добавляем тренера
     public void signCoach(Coach coach) {
         String insert = "INSERT INTO coaches (CoachFIO, CoachTelephone, CoachLogin)"
@@ -159,7 +176,9 @@ public class DatabaseHandler {
             while (resultSet.next()) {
                 list_users.add(new TableStudents(resultSet.getInt("students_id"), resultSet.getString("org_name"),
                         resultSet.getString("date_birth"), resultSet.getInt("org_year"), resultSet.getString("telephone"),
-                        resultSet.getInt("groupid"), resultSet.getString("login"), resultSet.getInt("groupid"), resultSet.getString("group_name"), resultSet.getInt("min_age"), resultSet.getInt("max_age"), resultSet.getInt("max_students"), resultSet.getInt("coachid")));
+                        resultSet.getInt("groupid"), resultSet.getString("login"), resultSet.getInt("groupid"),
+                        resultSet.getString("group_name"), resultSet.getInt("min_age"), resultSet.getInt("max_age"),
+                        resultSet.getInt("max_students"), resultSet.getInt("coachid")));
             }
         } catch (SQLException | ClassNotFoundException e) {
             // Обработка исключений
@@ -212,6 +231,43 @@ public class DatabaseHandler {
             }
         }
         return list_users;
+    }
+
+    public ObservableList<TableGroup> GetAllGroups() {
+        String select = "SELECT *\n" +
+                "FROM groups\n" +
+                "JOIN coaches ON groups.coachid = coaches.coachid";
+        ObservableList<TableGroup> list = FXCollections.observableArrayList();
+        Connection connection = null;
+        PreparedStatement prSt = null;
+
+        try {
+            connection = getDbConnection();
+            prSt = connection.prepareStatement(select);
+            ResultSet resultSet = prSt.executeQuery();
+
+            while (resultSet.next()) {
+                list.add(new TableGroup(resultSet.getInt("groupid"), resultSet.getString("group_name"),
+                        resultSet.getInt("min_age"), resultSet.getInt("max_age"), resultSet.getInt("max_students"),resultSet.getInt("coachid"),
+                        resultSet.getInt("coachid"), resultSet.getString("coachfio"), resultSet.getString("coachtelephone"), resultSet.getString("coachlogin")));
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            // Обработка исключений
+            e.printStackTrace();
+        } finally {
+            try {
+                if (prSt != null) {
+                    prSt.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                // Обработка исключений при закрытии ресурсов
+                e.printStackTrace();
+            }
+        }
+        return list;
     }
 
 

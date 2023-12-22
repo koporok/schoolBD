@@ -7,6 +7,9 @@ import java.util.ResourceBundle;
 import com.example.school.DatabaseHandler;
 import com.example.school.classes.Group;
 import com.example.school.SceneLoader;
+import com.example.school.table.TableGroup;
+import com.example.school.table.TableUsers;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -14,6 +17,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -59,7 +63,7 @@ public class AdministratorGroup {
     private TextField CoachSchedule;
 
     @FXML
-    private TableView<?> CoachTable;
+    private TableView<TableGroup> CoachTable;
 
     @FXML
     private TableView<?> CoachTable1;
@@ -86,7 +90,7 @@ public class AdministratorGroup {
     private TextField Group19;
 
     @FXML
-    private TextField Сoach;
+    private TextField coachTextField;
 
     @FXML
     private TextField GroupMinAge;
@@ -101,10 +105,10 @@ public class AdministratorGroup {
     private AnchorPane Student;
 
     @FXML
-    private TableColumn<?, ?> TableCoachFIO;
+    private TableColumn<TableGroup, String> TableCoachFIO;
 
     @FXML
-    private TableColumn<?, ?> TableGroupName;
+    private TableColumn<TableGroup, String> TableGroupName;
 
     @FXML
     private TableColumn<?, ?> TableStudentName;
@@ -136,7 +140,13 @@ public class AdministratorGroup {
     }
 
     @FXML
-    void initialize() {AddGroup.setOnAction(event -> {signUpNewUser();});}
+    protected void UpdatingTheTable(MouseEvent event) throws IOException {SceneLoader.loadNewScene("Selection.fxml",go);}
+
+    @FXML
+    void initialize() {
+        clickUpdateServiceGroup();
+        AddGroup.setOnAction(event -> {signUpNewUser();});
+    }
 
     private void signUpNewUser() {
         DatabaseHandler dbHandler = new DatabaseHandler();
@@ -145,13 +155,12 @@ public class AdministratorGroup {
         int Number = Integer.parseInt(GroupNumberStudents.getText());
         int MinAge = Integer.parseInt(GroupMinAge.getText());
         int MaxAge = Integer.parseInt(GroupMaxAge.getText());
-        String coach = Сoach.getText();
+        String coach = "1";
 
 
         if (!FIO.equals("")&&!(Number <= 0)&&!(MinAge <= 0)&&!(MaxAge <= 0)&&!coach.equals("")){
-            Group group = new Group(FIO,Number,MinAge,MaxAge,coach);
-            //dbHandler.signUser(group);
-
+            Group Group = new Group(FIO,Number,MinAge,MaxAge,coach);
+            dbHandler.signGroup(Group);
 
             //прописать ошибку
         }
@@ -159,5 +168,22 @@ public class AdministratorGroup {
 
     }
 
+    private void clickUpdateServiceGroup() {
+        try {
+            // Получение экземпляра DatabaseHandler
+            DatabaseHandler dbHandler = new DatabaseHandler();
 
+            // Получение списка пользователей
+            ObservableList<TableGroup> listService = dbHandler.GetAllGroups();
+
+            // Привязка полей TableView к свойствам объектов TableUsers
+            TableCoachFIO.setCellValueFactory(new PropertyValueFactory<>("GroupName"));
+            TableGroupName.setCellValueFactory(new PropertyValueFactory<>("UsersDate"));
+
+            // Установка данных в TableView
+            CoachTable.setItems(listService);
+        } catch (Exception e) {
+            e.printStackTrace(); // Обработка исключений
+        }
+    }
 }
