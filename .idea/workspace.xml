@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="920a1152-a566-445d-99b6-23c8734b5484" name="Changes" comment="работа с тренером и учениками">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/TableOfStudent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/TableOfStudent.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/classes/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/classes/Group.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/table/TableGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/table/TableGroup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/window/AdministratorGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/AdministratorGroup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/window/TableOfCoaches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/TableOfCoaches.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorGroup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorGroup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/Authorization.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/Authorization.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +43,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2ZUjnPMTsu5TIdfijkp2WRC1vAt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -180,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703168945975</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="работа с тренером и учениками">
+      <created>1703238744867</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1703238744867</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

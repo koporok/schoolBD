@@ -24,16 +24,15 @@ public class DatabaseHandler {
 
     //создать группу
     public void signGroup(Group group) {
-        String insert = "INSERT INTO coaches (group_name, min_age, max_age, max_students, coachid)"
-                + "VALUES(?,?,?,?,?)";
+        String insert = "INSERT INTO groups (group_name, min_age, max_age, max_students, coachid)"
+                + "VALUES(?,?,?,?,1)";
 
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
             prSt.setString(1, group.getFIO());
             prSt.setInt(2, group.getNumber());
             prSt.setInt(3, group.getMinAge());
-            prSt.setInt(3, group.getMaxAge());
-            prSt.setString(3, group.getCoach());
+            prSt.setInt(4, group.getMaxAge());
 
             prSt.executeUpdate();
         }
@@ -91,6 +90,41 @@ public class DatabaseHandler {
         }
     }
 
+    public void UpdatingTheDataStudents (int groupId, int id) throws SQLException {
+        String update = "UPDATE students SET groupid = ? WHERE students_id = ?"; // Определение запроса SQL
+        try {
+            Connection connection = getDbConnection(); // получение соединения с базой данных
+            PreparedStatement prSt = connection.prepareStatement(update);
+            prSt.setInt(1, groupId);
+            prSt.setInt(2, id);
+            prSt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace(); // Обработка исключений
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public void UpdatingTheDataGroups (int groupId, int id) throws SQLException {
+        String select = "UPDATE groups \n " +
+                " SET coachid = ? \n" +
+                "WHERE groupid = ?;\n"; // Определение запроса SQL
+        try {
+            Connection connection = getDbConnection(); // получение соединения с базой данных
+            PreparedStatement prSt = connection.prepareStatement(select);
+            prSt.setInt(1, id);
+            prSt.setInt(2, groupId);
+            prSt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace(); // Обработка исключений
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
     public void addStudentAttendance(int id) throws SQLException {
         String select = "INSERT INTO Attendance (students_id, scheduleid, attendance_flag)"
                 + "VALUES(?, 1,, '0' )"; // Определение запроса SQL
@@ -134,6 +168,42 @@ public class DatabaseHandler {
         try {
             connection = getDbConnection();
             prSt = connection.prepareStatement(select);
+            ResultSet resultSet = prSt.executeQuery();
+
+            while (resultSet.next()) {
+                list_users.add(new TableUsers(resultSet.getInt("students_id"), resultSet.getString("org_name"),
+                        resultSet.getString("date_birth"), resultSet.getInt("org_year"), resultSet.getString("telephone"),
+                        resultSet.getInt("groupid"), resultSet.getString("login")));
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            // Обработка исключений
+            e.printStackTrace();
+        } finally {
+            try {
+                if (prSt != null) {
+                    prSt.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                // Обработка исключений при закрытии ресурсов
+                e.printStackTrace();
+            }
+        }
+        return list_users;
+    }
+
+    public ObservableList<TableUsers> GetAllStudentByGroup(int groupId) {
+        String select = "SELECT * FROM students WHERE login <> 'null' AND groupid = ?;";
+        ObservableList<TableUsers> list_users = FXCollections.observableArrayList();
+        Connection connection = null;
+        PreparedStatement prSt = null;
+
+        try {
+            connection = getDbConnection();
+            prSt = connection.prepareStatement(select);
+            prSt.setInt(1, groupId); // Установка значения groupId в параметр SQL-запроса
             ResultSet resultSet = prSt.executeQuery();
 
             while (resultSet.next()) {

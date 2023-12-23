@@ -1,25 +1,21 @@
 package com.example.school.window;
 
-import java.net.URL;
-import java.sql.SQLException;
-import java.util.ResourceBundle;
-
 import com.example.school.DatabaseHandler;
 import com.example.school.table.TableCoach;
-import com.example.school.table.TableStudentCoachClasses;
+import com.example.school.table.TableStudents;
 import com.example.school.table.TableUsers;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseButton;
-import javafx.stage.Stage;
 
-public class TableOfCoaches {
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
+public class TableOfStudent {
     @FXML
     private ResourceBundle resources;
 
@@ -27,10 +23,10 @@ public class TableOfCoaches {
     private URL location;
 
     @FXML
-    private TableColumn<TableCoach, String> FIO;
+    private TableColumn<TableUsers, String> FIO;
 
     @FXML
-    private TableView<TableCoach> Table;
+    private TableView<TableUsers> Table;
 
     @FXML
     private Button choose;
@@ -38,18 +34,19 @@ public class TableOfCoaches {
     @FXML
     void initialize() {
         DatabaseHandler dbHandler = new DatabaseHandler();
-        ObservableList<TableCoach> listService = dbHandler.GetAllCoach();
-        FIO.setCellValueFactory(new PropertyValueFactory<>("coachFIO"));
+        int grID=1;
+        ObservableList<TableUsers> listService = dbHandler.GetAllStudentByGroup(grID);
+        FIO.setCellValueFactory(new PropertyValueFactory<>("UsersFIO"));
         Table.setItems(listService);
 
         choose.setOnAction(event -> {
-            TableCoach selectedUser = Table.getSelectionModel().getSelectedItem();
+            TableUsers selectedUser = Table.getSelectionModel().getSelectedItem();
 
             if (selectedUser != null) {
-                int id = selectedUser.getCoachId();
+                int id = selectedUser.getUserId();
                 int groupId = AdministratorGroup.selectedGroupId;
                 try {
-                    dbHandler.UpdatingTheDataGroups(groupId, id);
+                    dbHandler.UpdatingTheDataStudents(groupId, id);
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }

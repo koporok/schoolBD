@@ -13,9 +13,9 @@ public class TableGroup {
     private String CoachTelephone;
     private String CoachLogin;
 
-    public TableGroup(int groupId, String groupName, int groupMinAge, int groupMaxAge,
-                      int groupNumberStudents, int coachId_Group, int coachId, String coachFIO,
-                      String coachTelephone, String coachLogin) {
+    public TableGroup(int groupId, String groupName,
+                      int groupMinAge, int groupMaxAge, int groupNumberStudents, int coachId_Group,
+                      int coachId, String coachFIO, String coachTelephone, String coachLogin) {
         GroupId = groupId;
         GroupName = groupName;
         GroupMinAge = groupMinAge;

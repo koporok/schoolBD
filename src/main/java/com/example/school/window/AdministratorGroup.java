@@ -66,7 +66,7 @@ public class AdministratorGroup {
     private TableView<TableGroup> CoachTable;
 
     @FXML
-    private TableView<?> CoachTable1;
+    private TableView<TableUsers> TableStudent;
 
     @FXML
     private Button DeleteGroup;
@@ -111,7 +111,7 @@ public class AdministratorGroup {
     private TableColumn<TableGroup, String> TableGroupName;
 
     @FXML
-    private TableColumn<?, ?> TableStudentName;
+    private TableColumn<TableUsers, String> TableStudentName;
 
     @FXML
     private Tab User;
@@ -128,6 +128,13 @@ public class AdministratorGroup {
     @FXML
     private Button ob;
 
+
+    @FXML
+    private TextField GroupNameTextField;
+
+
+    static int selectedGroupId;
+
     @FXML
     protected void MouseCliked(MouseEvent event) throws IOException {SceneLoader.loadNewScene("Selection.fxml",go);}
 
@@ -140,12 +147,37 @@ public class AdministratorGroup {
     }
 
     @FXML
-    protected void UpdatingTheTable(MouseEvent event) throws IOException {SceneLoader.loadNewScene("Selection.fxml",go);}
+    void TableOfStudent(MouseEvent event) throws IOException {SceneLoader.UploadSecondScene("TableOfStudent.fxml",AddStudent);
+    }
+    @FXML
+    protected void UpdatingTheTable(MouseEvent event){clickUpdateServiceGroup();}
 
     @FXML
     void initialize() {
         clickUpdateServiceGroup();
         AddGroup.setOnAction(event -> {signUpNewUser();});
+
+        CoachTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                TableGroup selectedUser = CoachTable.getSelectionModel().getSelectedItem(); // Получение выбранного пользователя
+
+                CoachFIO.setText(selectedUser.getGroupName());
+                GroupNumberStudents.setText(String.valueOf(selectedUser.getGroupMinAge()));
+                GroupMinAge.setText(String.valueOf(selectedUser.getGroupMaxAge()));
+                GroupMaxAge.setText(String.valueOf(selectedUser.getGroupNumberStudents()));
+                coachTextField.setText(selectedUser.getCoachFIO());
+
+            }
+        });
+
+        CoachTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                TableGroup selectedGroup = CoachTable.getSelectionModel().getSelectedItem(); // Получение выбранной группы
+                setSelectedGroupId(selectedGroup.getGroupId()); // Установка ID группы в статическую переменную
+            }
+        });
+        clickUpdateStudent();
+
     }
 
     private void signUpNewUser() {
@@ -155,18 +187,20 @@ public class AdministratorGroup {
         int Number = Integer.parseInt(GroupNumberStudents.getText());
         int MinAge = Integer.parseInt(GroupMinAge.getText());
         int MaxAge = Integer.parseInt(GroupMaxAge.getText());
-        String coach = "1";
+        int coach = 1;
 
 
-        if (!FIO.equals("")&&!(Number <= 0)&&!(MinAge <= 0)&&!(MaxAge <= 0)&&!coach.equals("")){
-            Group Group = new Group(FIO,Number,MinAge,MaxAge,coach);
+        if (!FIO.equals("")&&!(Number <= 0)&&!(MinAge <= 0)&&!(MaxAge <= 0)){
+            Group Group = new Group(FIO, Number, MinAge, MaxAge, coach);
             dbHandler.signGroup(Group);
-
             //прописать ошибку
         }
+
         // после подачи заявления выходит уведомление и автоматичести переходим
 
     }
+
+
 
     private void clickUpdateServiceGroup() {
         try {
@@ -177,8 +211,8 @@ public class AdministratorGroup {
             ObservableList<TableGroup> listService = dbHandler.GetAllGroups();
 
             // Привязка полей TableView к свойствам объектов TableUsers
-            TableCoachFIO.setCellValueFactory(new PropertyValueFactory<>("GroupName"));
-            TableGroupName.setCellValueFactory(new PropertyValueFactory<>("UsersDate"));
+            TableGroupName.setCellValueFactory(new PropertyValueFactory<>("GroupName"));
+            TableCoachFIO.setCellValueFactory(new PropertyValueFactory<>("CoachFIO"));
 
             // Установка данных в TableView
             CoachTable.setItems(listService);
@@ -186,4 +220,29 @@ public class AdministratorGroup {
             e.printStackTrace(); // Обработка исключений
         }
     }
+
+    private void clickUpdateStudent() {
+        try {
+            // Получение экземпляра DatabaseHandler
+            DatabaseHandler dbHandler = new DatabaseHandler();
+            int grID = selectedGroupId;
+
+            // Получение списка пользователей
+            ObservableList<TableUsers> listService = dbHandler.GetAllStudentByGroup(grID);
+
+            // Привязка полей TableView к свойствам объектов TableUsers
+            TableGroupName.setCellValueFactory(new PropertyValueFactory<>("GroupName"));
+            TableCoachFIO.setCellValueFactory(new PropertyValueFactory<>("CoachFIO"));
+
+            // Установка данных в TableView
+            TableStudent.setItems(listService);
+        } catch (Exception e) {
+            e.printStackTrace(); // Обработка исключений
+        }
+    }
+
+    public static void setSelectedGroupId(int groupId) {
+        selectedGroupId = groupId;
+    }
+
 }
