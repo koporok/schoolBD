@@ -15,6 +15,7 @@ public class HelloApplication extends Application {
         stage.setTitle("(>_<)");
         stage.setScene(scene);
         stage.show();
+        GroupDatabase.createGroupTable(); // Создание таблицы в базе данных
     }
 
     public static void main(String[] args) {

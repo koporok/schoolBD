@@ -5,12 +5,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.example.school.DatabaseHandler;
+import com.example.school.GroupDatabase;
 import com.example.school.classes.Group;
 import com.example.school.SceneLoader;
+import com.example.school.table.TableCoach;
 import com.example.school.table.TableGroup;
 import com.example.school.table.TableUsers;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Tab;
@@ -20,6 +24,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+import java.sql.ResultSet;
+
+
+
+import javafx.scene.control.TableView;
+
 
 public class AdministratorGroup {
 
@@ -60,7 +72,7 @@ public class AdministratorGroup {
     private TextField CoachFIO;
 
     @FXML
-    private TextField CoachSchedule;
+    private static TextField CoachSchedule;
 
     @FXML
     private TableView<TableGroup> CoachTable;
@@ -149,13 +161,37 @@ public class AdministratorGroup {
     @FXML
     void TableOfStudent(MouseEvent event) throws IOException {SceneLoader.UploadSecondScene("TableOfStudent.fxml",AddStudent);
     }
+
+    @FXML
+    void ChooseCoach(MouseEvent event) throws IOException {
+        // Открытие всплывающего окна для выбора тренера
+        SceneLoader.UploadSecondScene("TableOfCoaches_2.fxml", ChooseCoach);
+    }
+
+
     @FXML
     protected void UpdatingTheTable(MouseEvent event){clickUpdateServiceGroup();}
 
     @FXML
     void initialize() {
+
+        Coach15.setOnAction(event -> {
+            // Предположим, у вас уже есть объект ResultSet с полученными данными из базы данных
+            String groupNumber = GroupDatabase.selectAllGroups(); // Получение всех данных о группах;
+
+
+// Далее вы можете использовать полученные данные по своему усмотрению, например, вывести их в консоль
+            System.out.println("Group Number: " + groupNumber);
+
+// Или сохранить их в переменные для дальнейшего использования в вашем приложении
+
+        });
+
+
         clickUpdateServiceGroup();
         AddGroup.setOnAction(event -> {signUpNewUser();});
+
+
 
         CoachTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
@@ -177,7 +213,6 @@ public class AdministratorGroup {
             }
         });
         clickUpdateStudent();
-
     }
 
     private void signUpNewUser() {
@@ -207,7 +242,6 @@ public class AdministratorGroup {
             // Получение экземпляра DatabaseHandler
             DatabaseHandler dbHandler = new DatabaseHandler();
 
-            // Получение списка пользователей
             ObservableList<TableGroup> listService = dbHandler.GetAllGroups();
 
             // Привязка полей TableView к свойствам объектов TableUsers

@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="920a1152-a566-445d-99b6-23c8734b5484" name="Changes" comment="работа с тренером и учениками">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/TableOfStudent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/TableOfStudent.fxml" afterDir="false" />
+    <list default="true" id="920a1152-a566-445d-99b6-23c8734b5484" name="Changes" comment="Присваивания тренера и группы">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/GroupDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/SelectAGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/TableOfCoaches_2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/SelectAGroup.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/TableOfCoaches_2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/DatabaseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/classes/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/classes/Group.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/table/TableGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/table/TableGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/window/AdministratorGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/AdministratorGroup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/window/TableOfCoaches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/TableOfCoaches.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorGroup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorGroup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/Authorization.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/Authorization.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703238744867</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Присваивания тренера и группы">
+      <created>1703319016574</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1703319016574</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -204,7 +212,8 @@
     <MESSAGE value="работа с базой данны" />
     <MESSAGE value="работа с группами" />
     <MESSAGE value="работа с тренером и учениками" />
-    <option name="LAST_COMMIT_MESSAGE" value="работа с тренером и учениками" />
+    <MESSAGE value="Присваивания тренера и группы" />
+    <option name="LAST_COMMIT_MESSAGE" value="Присваивания тренера и группы" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

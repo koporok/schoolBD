@@ -1,5 +1,6 @@
 package com.example.school.window;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -10,6 +11,9 @@ import com.example.school.table.TableStudentCoachClasses;
 import com.example.school.table.TableUsers;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
@@ -18,9 +22,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 
-
-public class TableOfCoaches {
-
+public class TableOfCoaches_2 {
     @FXML
     private ResourceBundle resources;
 
@@ -49,29 +51,29 @@ public class TableOfCoaches {
             TableCoach selectedCoach = Table.getSelectionModel().getSelectedItem();
 
             if (selectedCoach != null) {
-                // Установка значения статической переменной при выборе пользователя
                 selectedCoachFIO = selectedCoach.getCoachFIO();
 
-                int id = selectedCoach.getCoachId();
-                int groupId = AdministratorGroup.selectedGroupId;
-                try {
-                    dbHandler.UpdatingTheDataGroups(groupId, id);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
+                Stage stage = (Stage) choose.getScene().getWindow();
+                stage.close();
 
-                // Здесь вы можете добавить код для перехода на другую активити
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("AdministratorGroup.fxml"));
+                    Parent root = loader.load();
+                    AdministratorGroup controller = loader.getController();
+                    //controller.updateCoachFIO(selectedCoachFIO);
+
+                    Stage adminStage = new Stage();
+                    adminStage.setScene(new Scene(root));
+                    adminStage.show();
+                } catch (IOException e) {
+                    e.printStackTrace(); // Обработка ошибки загрузки файла FXML
+                }
             } else {
-                System.out.println("значит что-то не так с id");
+                System.out.println("Что-то не так с id");
                 // Обработка ситуации, когда selectedCoach равен null
             }
-
-
         });
-    }
 
-    // Добавляем статический метод для получения значения ФИО тренера
-    public static String getSelectedCoachFIO() {
-        return selectedCoachFIO;
+
     }
 }

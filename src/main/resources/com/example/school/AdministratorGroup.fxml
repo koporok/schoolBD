@@ -58,7 +58,7 @@
                         <Label layoutX="437.0" layoutY="285.0" text="18.00-18.45:" />
                         <Label layoutX="437.0" layoutY="345.0" text="19.00-19.45:" />
                   <TextField fx:id="CoachSchedule" layoutX="70.0" layoutY="239.0" promptText="Тренер не выбран " />
-                  <Button fx:id="ChooseCoach" layoutX="232.0" layoutY="239.0" mnemonicParsing="false" text="Выбрать тренера " />
+                  <Button fx:id="ChooseCoach" layoutX="232.0" layoutY="239.0" mnemonicParsing="false" onMouseClicked="#TableOfCoaches" text="Выбрать тренера " />
                   <TextField fx:id="Group15" layoutX="533.0" layoutY="107.0" promptText="Группы нет" />
                   <Button fx:id="Coach15" layoutX="698.0" layoutY="107.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Выбрать группу" />
                   <Button fx:id="Coach16" layoutX="698.0" layoutY="170.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Выбрать группу" />
