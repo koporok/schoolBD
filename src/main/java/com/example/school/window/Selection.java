@@ -7,15 +7,11 @@ import java.util.ResourceBundle;
 import com.example.school.SceneLoader;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+
+import javax.swing.text.html.ImageView;
 
 public class Selection {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
     @FXML
     private Button coaches;
 
@@ -24,6 +20,9 @@ public class Selection {
 
     @FXML
     private Button students;
+    @FXML
+    protected void MouseCliked(MouseEvent event) throws IOException {SceneLoader.loadNewScene("AdministratorGroup.fxml",groups);}
+
 
     @FXML
     void initialize() {
@@ -37,13 +36,6 @@ public class Selection {
         coaches.setOnAction(event -> {
             try {
                 SceneLoader.loadNewScene("AdministratorCoach.fxml",coaches);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        groups.setOnAction(event -> {
-            try {
-                SceneLoader.loadNewScene("AdministratorGroup.fxml",groups);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

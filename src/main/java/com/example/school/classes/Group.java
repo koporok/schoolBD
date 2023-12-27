@@ -5,14 +5,16 @@ public class Group {
     private int Number;
     private int MinAge;
     private int MaxAge;
-    private int coach;
+    private int Coach;
 
-    public Group(String FIO, int number, int minAge, int maxAge,  int coach) {
+    public Group(){}
+
+    public Group(String FIO, int number, int minAge, int maxAge, int coach) {
         this.FIO = FIO;
         Number = number;
         MinAge = minAge;
         MaxAge = maxAge;
-        coach = coach;
+        Coach = coach;
     }
 
     public String getFIO() {
@@ -48,10 +50,10 @@ public class Group {
     }
 
     public int getCoach() {
-        return coach;
+        return Coach;
     }
 
     public void setCoach(int coach) {
-        coach = coach;
+        Coach = coach;
     }
 }

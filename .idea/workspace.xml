@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="920a1152-a566-445d-99b6-23c8734b5484" name="Changes" comment="Присваивания тренера и группы">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/GroupDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/SelectAGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/TableOfCoaches_2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/SelectAGroup.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/TableOfCoaches_2.fxml" afterDir="false" />
+    <list default="true" id="920a1152-a566-445d-99b6-23c8734b5484" name="Changes" comment="Создание базы данных">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/classes/Schedule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/DatabaseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/classes/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/classes/Group.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/window/AdministratorGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/AdministratorGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/window/TableOfCoaches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/TableOfCoaches.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/window/Selection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/Selection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorGroup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorGroup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/Selection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/Selection.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +60,11 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aapro\IdeaProjects\school\src\Pictures" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="DatabaseHandler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.school.DatabaseHandler" />
@@ -201,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703319016574</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Создание базы данных">
+      <created>1703621578489</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1703621578489</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -213,7 +223,8 @@
     <MESSAGE value="работа с группами" />
     <MESSAGE value="работа с тренером и учениками" />
     <MESSAGE value="Присваивания тренера и группы" />
-    <option name="LAST_COMMIT_MESSAGE" value="Присваивания тренера и группы" />
+    <MESSAGE value="Создание базы данных" />
+    <option name="LAST_COMMIT_MESSAGE" value="Создание базы данных" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

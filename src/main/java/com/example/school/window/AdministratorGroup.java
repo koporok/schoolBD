@@ -2,6 +2,9 @@ package com.example.school.window;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import com.example.school.DatabaseHandler;
@@ -10,6 +13,7 @@ import com.example.school.classes.Group;
 import com.example.school.SceneLoader;
 import com.example.school.table.TableCoach;
 import com.example.school.table.TableGroup;
+import com.example.school.table.TableStudents;
 import com.example.school.table.TableUsers;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -36,12 +40,6 @@ import javafx.scene.control.TableView;
 public class AdministratorGroup {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private Button AddGroup;
 
     @FXML
@@ -49,30 +47,8 @@ public class AdministratorGroup {
 
     @FXML
     private Button AddTrainer;
-
-    @FXML
-    private Button ChooseCoach;
-
-    @FXML
-    private Button Coach15;
-
-    @FXML
-    private Button Coach16;
-
-    @FXML
-    private Button Coach17;
-
-    @FXML
-    private Button Coach18;
-
-    @FXML
-    private Button Coach19;
-
     @FXML
     private TextField CoachFIO;
-
-    @FXML
-    private static TextField CoachSchedule;
 
     @FXML
     private TableView<TableGroup> CoachTable;
@@ -80,11 +56,6 @@ public class AdministratorGroup {
     @FXML
     private TableView<TableUsers> TableStudent;
 
-    @FXML
-    private Button DeleteGroup;
-
-    @FXML
-    private Button EditCoach;
 
     @FXML
     private TextField Group15;
@@ -114,9 +85,6 @@ public class AdministratorGroup {
     private DatePicker LessonDate;
 
     @FXML
-    private AnchorPane Student;
-
-    @FXML
     private TableColumn<TableGroup, String> TableCoachFIO;
 
     @FXML
@@ -126,24 +94,19 @@ public class AdministratorGroup {
     private TableColumn<TableUsers, String> TableStudentName;
 
     @FXML
-    private Tab User;
-
-    @FXML
-    private AnchorPane addUser;
-
-    @FXML
     private Button go;
+
+    @FXML
+    private Button CreateSchedule;
 
     @FXML
     private TextField GroupMaxAge;
 
     @FXML
-    private Button ob;
-
+    private TableColumn<TableGroup, String> NameGroup;
 
     @FXML
-    private TextField GroupNameTextField;
-
+    private TableView<TableGroup> Grou;
 
     static int selectedGroupId;
 
@@ -151,47 +114,25 @@ public class AdministratorGroup {
     protected void MouseCliked(MouseEvent event) throws IOException {SceneLoader.loadNewScene("Selection.fxml",go);}
 
     @FXML
-    void UpdateServiceCoach(MouseEvent event) throws IOException {
-        SceneLoader.loadNewScene("Selection.fxml",go);}
+    void UpdateServiceCoach(MouseEvent event) throws IOException {SceneLoader.loadNewScene("Selection.fxml",go);}
 
     @FXML
-    void TableOfCoaches(MouseEvent event) throws IOException {SceneLoader.UploadSecondScene("TableOfCoaches.fxml",AddTrainer);
-    }
+    void TableOfCoaches(MouseEvent event) throws IOException {SceneLoader.UploadSecondScene("TableOfCoaches.fxml",AddTrainer);}
 
     @FXML
-    void TableOfStudent(MouseEvent event) throws IOException {SceneLoader.UploadSecondScene("TableOfStudent.fxml",AddStudent);
-    }
-
-    @FXML
-    void ChooseCoach(MouseEvent event) throws IOException {
-        // Открытие всплывающего окна для выбора тренера
-        SceneLoader.UploadSecondScene("TableOfCoaches_2.fxml", ChooseCoach);
-    }
-
+    void TableOfStudent(MouseEvent event) throws IOException {SceneLoader.UploadSecondScene("TableOfStudent.fxml",AddStudent);}
 
     @FXML
     protected void UpdatingTheTable(MouseEvent event){clickUpdateServiceGroup();}
 
+
     @FXML
-    void initialize() {
-
-        Coach15.setOnAction(event -> {
-            // Предположим, у вас уже есть объект ResultSet с полученными данными из базы данных
-            String groupNumber = GroupDatabase.selectAllGroups(); // Получение всех данных о группах;
-
-
-// Далее вы можете использовать полученные данные по своему усмотрению, например, вывести их в консоль
-            System.out.println("Group Number: " + groupNumber);
-
-// Или сохранить их в переменные для дальнейшего использования в вашем приложении
-
-        });
-
-
+    void initialize() throws SQLException {
+        clickUpdateService();
         clickUpdateServiceGroup();
+        clickUpdateStudent();
+
         AddGroup.setOnAction(event -> {signUpNewUser();});
-
-
 
         CoachTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
@@ -212,8 +153,119 @@ public class AdministratorGroup {
                 setSelectedGroupId(selectedGroup.getGroupId()); // Установка ID группы в статическую переменную
             }
         });
-        clickUpdateStudent();
+
+        CreateSchedule.setOnAction(event -> {
+            // Установите обработчик события для элемента DatePicker
+            LessonDate.valueProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue != null) {
+                    // Продолжайте выполнение кода с выбранной датой newValue
+                    System.out.println("Выбранная дата: " + newValue);
+                } else {
+                    // Обработайте ситуацию, когда выбранная дата равна null
+                    System.out.println("Ошибка: Дата не выбрана");
+                }
+            });
+
+
+            LocalDate selectedDate = LessonDate.getValue();
+
+            String group15 = Group15.getText();
+            String group16 = Group16.getText();
+            String group17 = Group17.getText();
+            String group18 = Group18.getText();
+            String group19 = Group19.getText();
+
+            String group15Id = Check(group15);
+            String group16Id = Check(group16);
+            String group17Id = Check(group17);
+            String group18Id = Check(group18);
+            String group19Id = Check(group19);
+
+            System.out.println("1");
+
+
+            try {
+                addSchedule(group15Id, selectedDate, "15.00-15.45");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                addSchedule(group16Id, selectedDate, "16.00-16.45");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                addSchedule(group17Id, selectedDate, "17.00-17.45");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                addSchedule(group18Id, selectedDate, "18.00-18.45");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                addSchedule(group19Id, selectedDate, "19.00-19.45");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+            System.out.println("2");
+
+        });
+
     }
+
+    private void addSchedule(String nameGroup, LocalDate date, String time) throws SQLException {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        if (nameGroup.equals("Нет группы")) { // Сравниваем строки с помощью метода equals()
+            int groupId = 1;
+            int coachId = 1;
+            dbHandler.FillingOutTheSchedule(groupId, Date.valueOf(date), time, coachId);
+        } else {
+            Group group = new Group();
+            group.setFIO(nameGroup); // Предполагая, что у вас есть метод setGroupName для установки названия группы
+
+            ResultSet result = dbHandler.getGroup(group);
+
+            if (result.next()) { // Перемещаем указатель на следующую строку, чтобы получить данные из результата
+                int groupId = result.getInt("group_id");
+                int coachId = result.getInt("coach_id");
+
+                dbHandler.FillingOutTheSchedule(groupId, Date.valueOf(date), time, coachId);
+            }
+        }
+    }
+
+    private String Check(String nameGroup) {
+        if (!nameGroup.equals("")) {
+            DatabaseHandler dbHandler = new DatabaseHandler();
+            Group group = new Group();
+            group.setFIO(nameGroup);
+
+            ResultSet result = dbHandler.getGroup(group);
+
+            int counter = 0;
+
+            try {
+                while (result.next()) {
+                    counter++;
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+            if (counter >= 1) {
+                return nameGroup;
+            } else {
+                return "Нет группы";
+            }
+        } else {
+            return "Нет группы";
+        }
+    }
+
+
 
     private void signUpNewUser() {
         DatabaseHandler dbHandler = new DatabaseHandler();
@@ -237,6 +289,22 @@ public class AdministratorGroup {
 
 
 
+    private void clickUpdateService(){
+        try {
+            // Получение экземпляра DatabaseHandler
+            DatabaseHandler dbHandler = new DatabaseHandler();
+
+            ObservableList<TableGroup> listService = dbHandler.GetAllGroups();
+
+            // Привязка полей TableView к свойствам объектов TableUsers
+            NameGroup.setCellValueFactory(new PropertyValueFactory<>("GroupName"));
+
+            // Установка данных в TableView
+            Grou.setItems(listService);
+        } catch (Exception e) {
+            e.printStackTrace(); // Обработка исключений
+        }
+    }
     private void clickUpdateServiceGroup() {
         try {
             // Получение экземпляра DatabaseHandler

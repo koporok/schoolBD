@@ -51,24 +51,23 @@
             <content>
                 <AnchorPane fx:id="addUser" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <DatePicker fx:id="LessonDate" layoutX="70.0" layoutY="191.0" />
-                        <Label layoutX="437.0" layoutY="111.0" text="15.00-15.45:" />
-                        <Label layoutX="437.0" layoutY="174.0" text="16.00-16.45:" />
-                        <Label layoutX="437.0" layoutY="234.0" text="17.00-17.45:" />
-                        <Label layoutX="437.0" layoutY="285.0" text="18.00-18.45:" />
-                        <Label layoutX="437.0" layoutY="345.0" text="19.00-19.45:" />
-                  <TextField fx:id="CoachSchedule" layoutX="70.0" layoutY="239.0" promptText="Тренер не выбран " />
-                  <Button fx:id="ChooseCoach" layoutX="232.0" layoutY="239.0" mnemonicParsing="false" onMouseClicked="#TableOfCoaches" text="Выбрать тренера " />
-                  <TextField fx:id="Group15" layoutX="533.0" layoutY="107.0" promptText="Группы нет" />
-                  <Button fx:id="Coach15" layoutX="698.0" layoutY="107.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Выбрать группу" />
-                  <Button fx:id="Coach16" layoutX="698.0" layoutY="170.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Выбрать группу" />
-                  <Button fx:id="Coach17" layoutX="698.0" layoutY="230.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Выбрать группу" />
-                  <Button fx:id="Coach18" layoutX="698.0" layoutY="290.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Выбрать группу" />
-                  <Button fx:id="Coach19" layoutX="698.0" layoutY="341.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Выбрать группу" />
-                  <TextField fx:id="Group16" layoutX="533.0" layoutY="170.0" promptText="Группы нет" />
-                  <TextField fx:id="Group17" layoutX="533.0" layoutY="230.0" promptText="Группы нет" />
-                  <TextField fx:id="Group19" layoutX="527.0" layoutY="341.0" promptText="Группы нет" />
-                  <TextField fx:id="Group18" layoutX="533.0" layoutY="281.0" promptText="Группы нет" />
+                        <DatePicker fx:id="LessonDate" layoutX="100.0" layoutY="72.0" />
+                        <Label layoutX="50.0" layoutY="124.0" text="15.00-15.45:" />
+                        <Label layoutX="50.0" layoutY="174.0" text="16.00-16.45:" />
+                        <Label layoutX="50.0" layoutY="222.0" text="17.00-17.45:" />
+                        <Label layoutX="50.0" layoutY="285.0" text="18.00-18.45:" />
+                        <Label layoutX="50.0" layoutY="345.0" text="19.00-19.45:" />
+                  <TextField fx:id="Group15" layoutX="147.0" layoutY="120.0" promptText="Группы нет" />
+                  <TextField fx:id="Group16" layoutX="147.0" layoutY="170.0" promptText="Группы нет" />
+                  <TextField fx:id="Group17" layoutX="147.0" layoutY="227.0" promptText="Группы нет" />
+                  <TextField fx:id="Group19" layoutX="147.0" layoutY="341.0" promptText="Группы нет" />
+                  <TextField fx:id="Group18" layoutX="147.0" layoutY="290.0" promptText="Группы нет" />
+                  <TableView fx:id="Grou" layoutX="398.0" layoutY="113.0" prefHeight="279.0" prefWidth="192.0">
+                    <columns>
+                      <TableColumn fx:id="NameGroup" prefWidth="191.0" text="Названеи группы" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="CreateSchedule" layoutX="115.0" layoutY="399.0" mnemonicParsing="false" text="Создать расписанме " />
                     </children></AnchorPane>
             </content>
         </Tab>

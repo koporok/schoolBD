@@ -75,6 +75,41 @@ public class DatabaseHandler {
         catch (ClassNotFoundException e) {throw new RuntimeException(e);}
     }
 
+
+
+    public ResultSet getGroup(Group group) {
+        ResultSet reSet = null;
+
+        String select = "SELECT * FROM groups WHERE group_name = ?"; // замените на имя нужного столбца
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(select);
+            prSt.setString(1, group.getFIO());
+
+            reSet = prSt.executeQuery();
+        }
+        catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace(); // Лучше логгировать ошибку или вернуть null вместо RuntimeException
+        }
+        return reSet;
+    }
+
+    //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    public void FillingOutTheSchedule(int group_id, Date lesson_date, String time, int coachid) {
+        String insert = "INSERT INTO lesson_schedule (group_id, lesson_date, time, coachid) VALUES(?,?,?,?)";
+
+        try (PreparedStatement prSt = getDbConnection().prepareStatement(insert)) {
+            prSt.setInt(1, group_id);
+            prSt.setDate(2, lesson_date);
+            prSt.setString(3, time);
+            prSt.setInt(4, coachid);
+            prSt.executeUpdate();
+        }
+        catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace(); // Лучше логгировать ошибку или вернуть null вместо RuntimeException
+        }
+    }
+
+
     public void addStudent(String login, int id) throws SQLException {
         String select = "UPDATE students SET login = ? WHERE students_id = ?"; // Определение запроса SQL
         try {
