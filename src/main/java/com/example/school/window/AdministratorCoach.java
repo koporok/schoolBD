@@ -125,6 +125,11 @@ public class AdministratorCoach {
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
+
+            CoachFIO.clear();
+            CoachTelephone.clear();
+            login.clear();
+
         });
         CoachAdd.setOnAction(event -> {signUpNewCoach();});
 

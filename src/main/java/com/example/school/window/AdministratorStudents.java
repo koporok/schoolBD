@@ -135,6 +135,7 @@ public class AdministratorStudents {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
+            cleanUpUser();
         });
         deleteUser.setOnAction(event -> {
             try {
@@ -144,6 +145,7 @@ public class AdministratorStudents {
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
+            cleanUpUser();
         });
         deleteStudent.setOnAction(event -> {
             try {
@@ -153,6 +155,8 @@ public class AdministratorStudents {
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
+            cleanStudent();
+            clickUpdateServiceStudent();
         });
         createLogin.setOnAction(event -> {
             String randomCombination = generateRandomCombination(10);
@@ -184,6 +188,20 @@ public class AdministratorStudents {
 
     }
 
+    private void cleanUpUser(){
+        UserFIO.clear();
+        UserDate.clear();
+        UserYear.clear();
+        UserTelephone.clear();
+        UserLogin.clear();
+    }
+
+    private void cleanStudent(){
+        StudentFIO.clear();
+        StudentDate.clear();
+        StudentYear.clear();
+        StudentTelephone.clear();
+    }
     private void deletingU() throws SQLException, ClassNotFoundException {
         DatabaseHandler dbHandler = new DatabaseHandler();
         TableUsers selectedUser = UserTable.getSelectionModel().getSelectedItem();

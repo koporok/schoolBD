@@ -9,6 +9,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="907.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.school.window.AdministratorGroup">
     <tabs>
@@ -16,11 +17,10 @@
             <content>
                 <AnchorPane fx:id="Student" minHeight="0.0" minWidth="0.0" prefHeight="538.0" prefWidth="946.0">
                     <children>
-                        <TextField fx:id="CoachFIO" layoutX="31.0" layoutY="117.0" prefHeight="25.0" prefWidth="154.0" promptText="Номер группы:" />
-                        <TextField fx:id="GroupNumberStudents" layoutX="33.0" layoutY="180.0" promptText="количество учеников" />
-                        <Button fx:id="EditCoach" layoutX="38.0" layoutY="392.0" mnemonicParsing="false" onMouseClicked="#UpdatingTheTable" prefHeight="25.0" prefWidth="140.0" text="Редактировать группу" />
-                        <Button fx:id="DeleteGroup" layoutX="57.0" layoutY="467.0" mnemonicParsing="false" onMouseClicked="#UpdatingTheTable" text="Удалить группу" />
-                        <TableView fx:id="CoachTable" layoutX="327.0" layoutY="91.0" prefHeight="341.0" prefWidth="275.0">
+                        <TextField fx:id="CoachFIO" layoutX="31.0" layoutY="117.0" prefHeight="25.0" prefWidth="253.0" promptText="Номер группы:" />
+                        <TextField fx:id="GroupNumberStudents" layoutX="33.0" layoutY="180.0" prefHeight="25.0" prefWidth="253.0" promptText="количество учеников" />
+                        <Button fx:id="DeleteGroup" layoutX="36.0" layoutY="442.0" mnemonicParsing="false" onMouseClicked="#UpdatingTheTable" prefHeight="25.0" prefWidth="248.0" text="Удалить группу" />
+                        <TableView fx:id="CoachTable" layoutX="327.0" layoutY="91.0" prefHeight="396.0" prefWidth="275.0">
                             <columns>
                                 <TableColumn fx:id="TableGroupName" prefWidth="115.0" text="Номер групп" />
                                 <TableColumn fx:id="TableCoachFIO" prefWidth="159.0" text="тренер " />
@@ -28,22 +28,26 @@
                         </TableView>
                         <Label layoutX="32.0" layoutY="100.0" text="Номер группы:" />
                         <Label layoutX="35.0" layoutY="163.0" text="Количество учеников:" />
-                        <Button fx:id="AddGroup" layoutX="52.0" layoutY="430.0" mnemonicParsing="false" onMouseClicked="#UpdatingTheTable" prefHeight="25.0" prefWidth="112.0" text="Добавить группа" />
-                        <Label layoutX="35.0" layoutY="238.0" text="Минимальнй возраст " />
-                        <TextField fx:id="GroupMinAge" layoutX="33.0" layoutY="253.0" />
-                        <Button fx:id="go" layoutX="19.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#MouseCliked" text="Назад" />
+                        <Button fx:id="AddGroup" layoutX="36.0" layoutY="396.0" mnemonicParsing="false" onMouseClicked="#UpdatingTheTable" prefHeight="25.0" prefWidth="248.0" text="Добавить группа" />
+                        <Label layoutX="35.0" layoutY="224.0" text="Минимальнй возраст " />
+                        <TextField fx:id="GroupMinAge" layoutX="30.0" layoutY="241.0" prefHeight="25.0" prefWidth="254.0" promptText="Минимальный возраст " />
+                        <Button fx:id="go" layoutX="19.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#MouseCliked" text="&lt;--" />
                   <Label layoutX="33.0" layoutY="278.0" text="Максимальнй возраст " />
-                  <TextField fx:id="GroupMaxAge" layoutX="33.0" layoutY="295.0" />
+                  <TextField fx:id="GroupMaxAge" layoutX="32.0" layoutY="295.0" prefHeight="25.0" prefWidth="252.0" promptText="Максимальный возраст " />
                   <Label layoutX="34.0" layoutY="330.0" text="Тренер" />
-                  <Button fx:id="AddTrainer" layoutX="408.0" layoutY="442.0" mnemonicParsing="false" onMouseClicked="#TableOfCoaches" text="Выбрать тренера " />
-                        <TextField fx:id="coachTextField" layoutX="33.0" layoutY="355.0" promptText="Тренер не выбран " />
-
-                        <TableView fx:id="TableStudent" layoutX="611.0" layoutY="91.0" prefHeight="339.0" prefWidth="275.0">
-                     <columns>
-                        <TableColumn fx:id="TableStudentName" prefWidth="274.0" text="ФИО ученика " />
-                     </columns>
-                  </TableView>
-                  <Button fx:id="AddStudent" layoutX="690.0" layoutY="442.0" mnemonicParsing="false" onMouseClicked="#TableOfStudent" text="Добавить ученика" />
+                  <Button fx:id="AddTrainer" layoutX="632.0" layoutY="241.0" mnemonicParsing="false" onMouseClicked="#TableOfCoaches" prefHeight="25.0" prefWidth="242.0" text="Выбрать тренера " />
+                        <TextField fx:id="coachTextField" layoutX="32.0" layoutY="347.0" prefHeight="25.0" prefWidth="250.0" promptText="Тренер не выбран " />
+                  <Button fx:id="AddStudent" layoutX="632.0" layoutY="283.0" mnemonicParsing="false" onMouseClicked="#TableOfStudent" prefHeight="25.0" prefWidth="243.0" text="Добавить ученика" />
+                  <Label layoutX="663.0" layoutY="137.0" text="┐(￣ヘ￣)┌">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="663.0" layoutY="370.0" text="┐(￣ヘ￣)┌">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
                     </children></AnchorPane>
             </content>
         </Tab>
@@ -51,23 +55,29 @@
             <content>
                 <AnchorPane fx:id="addUser" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <DatePicker fx:id="LessonDate" layoutX="100.0" layoutY="72.0" />
-                        <Label layoutX="50.0" layoutY="124.0" text="15.00-15.45:" />
-                        <Label layoutX="50.0" layoutY="174.0" text="16.00-16.45:" />
-                        <Label layoutX="50.0" layoutY="222.0" text="17.00-17.45:" />
-                        <Label layoutX="50.0" layoutY="285.0" text="18.00-18.45:" />
-                        <Label layoutX="50.0" layoutY="345.0" text="19.00-19.45:" />
-                  <TextField fx:id="Group15" layoutX="147.0" layoutY="120.0" promptText="Группы нет" />
-                  <TextField fx:id="Group16" layoutX="147.0" layoutY="170.0" promptText="Группы нет" />
-                  <TextField fx:id="Group17" layoutX="147.0" layoutY="227.0" promptText="Группы нет" />
-                  <TextField fx:id="Group19" layoutX="147.0" layoutY="341.0" promptText="Группы нет" />
-                  <TextField fx:id="Group18" layoutX="147.0" layoutY="290.0" promptText="Группы нет" />
-                  <TableView fx:id="Grou" layoutX="398.0" layoutY="113.0" prefHeight="279.0" prefWidth="192.0">
+                        <DatePicker fx:id="LessonDate" layoutX="121.0" layoutY="95.0" prefHeight="25.0" prefWidth="288.0" promptText="Дата тренировки " />
+                        <Label layoutX="128.0" layoutY="145.0" text="15.00-15.45:" />
+                        <Label layoutX="128.0" layoutY="195.0" text="16.00-16.45:" />
+                        <Label layoutX="128.0" layoutY="244.0" text="17.00-17.45:" />
+                        <Label layoutX="128.0" layoutY="294.0" text="18.00-18.45:" />
+                        <Label layoutX="128.0" layoutY="345.0" text="19.00-19.45:" />
+                  <TextField fx:id="Group15" layoutX="224.0" layoutY="141.0" prefHeight="25.0" prefWidth="186.0" promptText="Группы нет" />
+                  <TextField fx:id="Group16" layoutX="224.0" layoutY="191.0" prefHeight="25.0" prefWidth="188.0" promptText="Группы нет" />
+                  <TextField fx:id="Group17" layoutX="223.0" layoutY="240.0" prefHeight="25.0" prefWidth="191.0" promptText="Группы нет" />
+                  <TextField fx:id="Group19" layoutX="224.0" layoutY="290.0" prefHeight="25.0" prefWidth="189.0" promptText="Группы нет" />
+                  <TextField fx:id="Group18" layoutX="224.0" layoutY="341.0" prefHeight="25.0" prefWidth="189.0" promptText="Группы нет" />
+                  <TableView fx:id="Grou" layoutX="528.0" layoutY="58.0" prefHeight="388.0" prefWidth="283.0">
                     <columns>
-                      <TableColumn fx:id="NameGroup" prefWidth="191.0" text="Названеи группы" />
+                      <TableColumn fx:id="NameGroup" prefWidth="281.0" text="Названеи группы" />
                     </columns>
                   </TableView>
-                  <Button fx:id="CreateSchedule" layoutX="115.0" layoutY="399.0" mnemonicParsing="false" text="Создать расписанме " />
+                  <Button fx:id="CreateSchedule" layoutX="128.0" layoutY="386.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="287.0" text="Создать расписанме " />
+                  <Label layoutX="121.0" layoutY="78.0" text="Дата тренировки:" />
+                  <Label layoutX="147.0" layoutY="446.0" prefHeight="70.0" prefWidth="249.0" text="┐(￣ヘ￣)┌">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Label>
                     </children></AnchorPane>
             </content>
         </Tab>

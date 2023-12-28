@@ -46,15 +46,19 @@ public class Registration {
         int IDgroups = 1;
         String StudentsLogin = "null";
 
-        if (!FIO.equals("")&&!date.equals("")&&!year.equals("")&&!telephone.equals("")){
-            Student student = new Student(StudentsFIO,StudentsDate,StudentsYear,StudentsTelephone,IDgroups,StudentsLogin);
+        if (!FIO.equals("") && !date.equals("") && !year.equals("") && !telephone.equals("")) {
+            Student student = new Student(StudentsFIO, StudentsDate, StudentsYear, StudentsTelephone, IDgroups, StudentsLogin);
             dbHandler.signUser(student);
 
+            // После ввода информации очистить текстовые поля
+            FIO.clear();
+            date.clear();
+            year.clear();
+            telephone.clear();
 
-            //прописать ошибку
+            // Прописать дополнительную логику или уведомление здесь
         }
         // после подачи заявления выходит уведомление и автоматичести переходим
-
     }
 
 }

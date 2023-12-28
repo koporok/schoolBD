@@ -12,7 +12,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Authorization.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 450);
-        stage.setTitle("(>_<)");
+        stage.setTitle("٩(｡•́‿•̀｡)۶");
         stage.setScene(scene);
         stage.show();
         GroupDatabase.createGroupTable(); // Создание таблицы в базе данных

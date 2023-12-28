@@ -6,15 +6,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ccffcc;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.school.window.Authorization">
+<AnchorPane prefHeight="400.0" prefWidth="579.0" style="-fx-background-color: #ffcccc;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.school.window.Authorization">
     <children>
-        <Label contentDisplay="TOP" layoutX="197.0" layoutY="90.0" prefHeight="49.0" prefWidth="209.0" text="Авторизация " textAlignment="CENTER" textFill="#2e8b57" textOverrun="CLIP">
+        <Label contentDisplay="TOP" layoutX="353.0" layoutY="71.0" prefHeight="49.0" prefWidth="209.0" text="Авторизация " textAlignment="CENTER" textFill="#8B0000" textOverrun="CLIP">
             <font>
                 <Font name="Agency FB Bold" size="33.0" />
             </font>
         </Label>
-        <Button fx:id="entrance" layoutX="276.0" layoutY="222.0" mnemonicParsing="false" style="-fx-background-color: #2e8b57; -fx-text-fill: white;" text="Войти" />
-        <Button fx:id="supply" layoutX="236.0" layoutY="338.0" mnemonicParsing="false" onMouseClicked="#MouseCliked" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: #2e8b57; -fx-text-fill: white;" text="Подать заявку " AnchorPane.rightAnchor="234.0" />
-        <TextField fx:id="login" layoutX="226.0" layoutY="175.0" promptText="Логин:" />
+        <Button fx:id="entrance" layoutX="433.0" layoutY="215.0" mnemonicParsing="false" style="-fx-background-color: #8B0000; -fx-text-fill: white;" text="Войти" />
+        <Button fx:id="supply" layoutX="393.0" layoutY="333.0" mnemonicParsing="false" onMouseClicked="#MouseCliked" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: #8B0000; -fx-text-fill: white;" text="Подать заявку " />
+        <TextField fx:id="login" layoutX="383.0" layoutY="170.0" promptText="Логин:" />
+      <Label layoutX="346.0" layoutY="103.0" prefHeight="17.0" prefWidth="209.0" text="------------------------------------------" />
+      <Label layoutX="300.0" layoutY="162.0" prefHeight="17.0" prefWidth="34.0" textOverrun="LEADING_WORD_ELLIPSIS" />
+      <Label layoutX="43.0" layoutY="159.0" text="┐(￣ヘ￣)┌">
+         <font>
+            <Font size="56.0" />
+         </font>
+      </Label>
+      <Label layoutX="62.0" layoutY="112.0" prefHeight="36.0" prefWidth="243.0" text="детской школы">
+         <font>
+            <Font name="Agency FB Bold" size="34.0" />
+         </font>
+      </Label>
+      <Label layoutX="28.0" layoutY="242.0" text="единоборств ">
+         <font>
+            <Font name="Agency FB" size="49.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

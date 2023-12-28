@@ -6,18 +6,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.school.window.Registration">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffcccc;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.school.window.Registration">
     <children>
-        <Label contentDisplay="TOP" layoutX="226.0" layoutY="81.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="149.0" text="Подать заявку" textAlignment="CENTER" textOverrun="CLIP">
+        <Label contentDisplay="TOP" layoutX="163.0" layoutY="71.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="299.0" text="Подать заявление в шоклу" textAlignment="CENTER" textOverrun="CLIP">
             <font>
-                <Font size="22.0" />
+                <Font name="System Bold" size="22.0" />
             </font>
         </Label>
-        <Button fx:id="Exit" layoutX="259.0" layoutY="309.0" mnemonicParsing="false" onMouseClicked="#MouseCliked" prefHeight="25.0" prefWidth="87.0" text="Назад" />
-        <Button fx:id="give" layoutX="254.0" layoutY="267.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Подать заявку " />
-        <TextField fx:id="FIO" layoutX="183.0" layoutY="135.0" prefHeight="25.0" prefWidth="237.0" promptText="ФИО (ребёнка):" />
-        <TextField fx:id="date" layoutX="182.0" layoutY="175.0" prefHeight="25.0" prefWidth="110.0" promptText="дд.мм Рождения ребёнка " />
-        <TextField fx:id="year" layoutX="310.0" layoutY="175.0" prefHeight="25.0" prefWidth="110.0" promptText="год Рождения ребёнка " />
-        <TextField fx:id="telephone" layoutX="211.0" layoutY="213.0" prefHeight="25.0" prefWidth="163.0" promptText="Номер телефона родителя:" />
+        <Button fx:id="Exit" layoutX="267.0" layoutY="337.0" mnemonicParsing="false" onMouseClicked="#MouseCliked" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #8b0000; -fx-text-fill: white;" text="Назад" />
+        <Button fx:id="give" layoutX="262.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #8b0000; -fx-text-fill: white;" text="Подать заявку " />
+        <TextField fx:id="FIO" layoutX="177.0" layoutY="139.0" prefHeight="25.0" prefWidth="270.0" promptText="ФИО (ребёнка):" />
+        <TextField fx:id="date" layoutX="176.0" layoutY="188.0" prefHeight="25.0" prefWidth="110.0" promptText="дд.мм Рождения ребёнка " />
+        <TextField fx:id="year" layoutX="339.0" layoutY="188.0" prefHeight="25.0" prefWidth="110.0" promptText="год Рождения ребёнка " />
+        <TextField fx:id="telephone" layoutX="178.0" layoutY="237.0" prefHeight="25.0" prefWidth="270.0" promptText="Номер телефона родителя:" />
+      <Label layoutX="296.0" layoutY="122.0" text="ФИО:" />
+      <Label layoutX="265.0" layoutY="220.0" text="Номер телефона:" />
+      <Label layoutX="189.0" layoutY="171.0" text="дд. мм ребёнка" />
+      <Label layoutX="357.0" layoutY="171.0" text="год ребёнка" />
+      <Label layoutX="238.0" layoutY="22.0" text="┐(￣ヘ￣)┌">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

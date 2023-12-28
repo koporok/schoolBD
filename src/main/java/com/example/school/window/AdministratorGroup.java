@@ -91,9 +91,6 @@ public class AdministratorGroup {
     private TableColumn<TableGroup, String> TableGroupName;
 
     @FXML
-    private TableColumn<TableUsers, String> TableStudentName;
-
-    @FXML
     private Button go;
 
     @FXML
@@ -130,7 +127,6 @@ public class AdministratorGroup {
     void initialize() throws SQLException {
         clickUpdateService();
         clickUpdateServiceGroup();
-        clickUpdateStudent();
 
         AddGroup.setOnAction(event -> {signUpNewUser();});
 
@@ -322,27 +318,6 @@ public class AdministratorGroup {
             e.printStackTrace(); // Обработка исключений
         }
     }
-
-    private void clickUpdateStudent() {
-        try {
-            // Получение экземпляра DatabaseHandler
-            DatabaseHandler dbHandler = new DatabaseHandler();
-            int grID = selectedGroupId;
-
-            // Получение списка пользователей
-            ObservableList<TableUsers> listService = dbHandler.GetAllStudentByGroup(grID);
-
-            // Привязка полей TableView к свойствам объектов TableUsers
-            TableGroupName.setCellValueFactory(new PropertyValueFactory<>("GroupName"));
-            TableCoachFIO.setCellValueFactory(new PropertyValueFactory<>("CoachFIO"));
-
-            // Установка данных в TableView
-            TableStudent.setItems(listService);
-        } catch (Exception e) {
-            e.printStackTrace(); // Обработка исключений
-        }
-    }
-
     public static void setSelectedGroupId(int groupId) {
         selectedGroupId = groupId;
     }
