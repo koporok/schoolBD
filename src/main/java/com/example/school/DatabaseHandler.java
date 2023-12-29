@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.time.LocalDate;
 
 public class DatabaseHandler {
         Connection connection;
@@ -376,6 +377,29 @@ public class DatabaseHandler {
     }
 
 
+    public ObservableList<TableStudentSchedule> GetStudentSchedule(String name, int id) {
+        String select = "SELECT * FROM lesson_schedule " +
+                "JOIN groups ON lesson_schedule.group_id = groups.groupid " +
+                "WHERE "+ name +" = ?";
+        ObservableList<TableStudentSchedule> list = FXCollections.observableArrayList();
+
+        try (Connection connection = getDbConnection();
+             PreparedStatement prSt = connection.prepareStatement(select)) {
+
+            prSt.setInt(1, id);
+            ResultSet resultSet = prSt.executeQuery();
+
+            while (resultSet.next()) {
+                list.add(new TableStudentSchedule(resultSet.getInt("scheduleid"), resultSet.getInt("group_id"), resultSet.getDate("lesson_date"),
+                        resultSet.getString("time"), resultSet.getInt("coachid"),
+                        resultSet.getInt("groupid"), resultSet.getString("group_name"), resultSet.getInt("min_age"), resultSet.getInt("max_age"), resultSet.getInt("max_students"), resultSet.getInt("coachid")));
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            // Обработка исключений
+            e.printStackTrace();
+        }
+        return list;
+    }
 
     public ObservableList<TableStudentCoachClasses> GetAllStudent() {
         String select = "SELECT *\n" +

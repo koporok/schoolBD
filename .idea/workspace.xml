@@ -4,19 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="920a1152-a566-445d-99b6-23c8734b5484" name="Changes" comment="Создаём расписание">
+    <list default="true" id="920a1152-a566-445d-99b6-23c8734b5484" name="Changes" comment="конец кода">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/table/TableStudentSchedule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/CoachAndSchedule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/StudentAndSchedule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/CoachAndSchedule.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/StudentAndSchedule.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/DatabaseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/window/AdministratorCoach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/AdministratorCoach.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/window/AdministratorGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/AdministratorGroup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/window/AdministratorStudents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/AdministratorStudents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school/window/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school/window/Registration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorCoach.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorCoach.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorGroup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorGroup.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorStudents.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/AdministratorStudents.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/Authorization.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/Authorization.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/Registration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/Registration.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/Selection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/school/Selection.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/school/SelectAGroup.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +28,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -221,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703708575135</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="конец кода">
+      <created>1703791344669</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1703791344669</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -235,7 +244,8 @@
     <MESSAGE value="Присваивания тренера и группы" />
     <MESSAGE value="Создание базы данных" />
     <MESSAGE value="Создаём расписание" />
-    <option name="LAST_COMMIT_MESSAGE" value="Создаём расписание" />
+    <MESSAGE value="конец кода" />
+    <option name="LAST_COMMIT_MESSAGE" value="конец кода" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

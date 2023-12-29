@@ -7,10 +7,13 @@ import java.util.ResourceBundle;
 
 import com.example.school.DatabaseHandler;
 import com.example.school.SceneLoader;
+import com.example.school.table.TableGroup;
 import com.example.school.table.TableStudents;
 import com.example.school.table.TableUsers;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
@@ -115,7 +118,7 @@ public class AdministratorStudents {
     private Button deleteUser;
 
     @FXML
-    private Button editStudent;
+    private Button Schedule;
     @FXML
     private Button go;
     @FXML
@@ -129,6 +132,7 @@ public class AdministratorStudents {
     void initialize() {
         clickUpdateServiceUser();
         clickUpdateServiceStudent();
+
         addStudent.setOnAction(event -> {
             try {
                 addS();
@@ -184,6 +188,26 @@ public class AdministratorStudents {
             }
         });
 
+        Schedule.setOnAction(event -> {
+            try {
+                addS();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            cleanUpUser();
+        });
+        // В вашем текущем контроллере, который содержит код обработчика Schedule.setOnAction
+        StudentTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                TableStudents selectedUser = StudentTable.getSelectionModel().getSelectedItem();
+                setId_StudentAndSchedule(selectedUser.getGroupId());
+                try {
+                    SceneLoader.UploadSecondScene("StudentAndSchedule.fxml", Schedule);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
 
 
     }
@@ -235,6 +259,15 @@ public class AdministratorStudents {
 
     }
 
+    private static int id_StudentAndSchedule;
+
+    public static void setId_StudentAndSchedule(int id) {
+        id_StudentAndSchedule = id;
+    }
+
+    public static int getId_StudentAndSchedule() {
+        return id_StudentAndSchedule;
+    }
     private void addS() throws SQLException {
         DatabaseHandler dbHandler = new DatabaseHandler();
 

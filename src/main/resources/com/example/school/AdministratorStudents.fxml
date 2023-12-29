@@ -46,6 +46,7 @@
                         <Font size="30.0" />
                      </font>
                   </Label>
+                  <Button fx:id="Schedule" layoutX="39.0" layoutY="379.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="259.0" text="Посмотреть расписание" />
                     </children>
                 </AnchorPane>
             </content>

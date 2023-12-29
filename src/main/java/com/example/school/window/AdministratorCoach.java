@@ -77,7 +77,7 @@ public class AdministratorCoach {
     private Button deleteCoach;
 
     @FXML
-    private Button editCoach;
+    private Button schedule;
 
     @FXML
     private Button go;
@@ -141,13 +141,31 @@ public class AdministratorCoach {
             if (newSelection != null) {
                 TableCoach selectedUser = CoachTable.getSelectionModel().getSelectedItem(); // Получение выбранного пользователя
 
+                setId_StudentAndSchedule(selectedUser.getCoachId());
+
                 CoachFIO.setText(selectedUser.getCoachFIO());
                 CoachTelephone.setText(selectedUser.getCoachTelephone());
                 login.setText(String.valueOf(selectedUser.getCoachLogin()));
+
+                try {
+                    SceneLoader.UploadSecondScene("CoachAndSchedule.fxml", schedule);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
+            }
         });
+
     }
 
+    private static int id_StudentAndSchedule;
+
+    public static void setId_StudentAndSchedule(int id) {
+        id_StudentAndSchedule = id;
+    }
+
+    public static int getId_StudentAndSchedule() {
+        return id_StudentAndSchedule;
+    }
     private String generateRandomCombination(int length) {
         String characters = "abcdefghijklmnopqrstuvwxyz0123456789";
         Random random = new Random();

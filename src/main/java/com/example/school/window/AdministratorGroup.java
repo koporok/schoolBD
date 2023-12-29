@@ -206,7 +206,7 @@ public class AdministratorGroup {
                 throw new RuntimeException(e);
             }
 
-            System.out.println("2");
+            System.out.println("Работает ");
 
         });
 
@@ -217,6 +217,7 @@ public class AdministratorGroup {
         if (nameGroup.equals("Нет группы")) { // Сравниваем строки с помощью метода equals()
             int groupId = 1;
             int coachId = 1;
+            System.out.println("2");
             dbHandler.FillingOutTheSchedule(groupId, Date.valueOf(date), time, coachId);
         } else {
             Group group = new Group();
@@ -225,8 +226,10 @@ public class AdministratorGroup {
             ResultSet result = dbHandler.getGroup(group);
 
             if (result.next()) { // Перемещаем указатель на следующую строку, чтобы получить данные из результата
-                int groupId = result.getInt("group_id");
-                int coachId = result.getInt("coach_id");
+                int groupId = result.getInt("groupid");
+                int coachId = result.getInt("coachid");
+
+                System.out.println("3");
 
                 dbHandler.FillingOutTheSchedule(groupId, Date.valueOf(date), time, coachId);
             }
